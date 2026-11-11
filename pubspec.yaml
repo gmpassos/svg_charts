@@ -1,15 +1,28 @@
 name: svg_charts
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: >-
+  Charts rendered as SVG markup: columns, bars, lines, areas, sparklines,
+  scatter, pie and donut, gauges, heatmaps and stat tiles, with hints and
+  light/dark themes. Pure Dart, so it renders in browsers and on servers.
+version: 0.1.0
+repository: https://github.com/gmpassos/svg_charts
+issue_tracker: https://github.com/gmpassos/svg_charts/issues
+
+topics:
+  - charts
+  - svg
+  - visualization
+  - web
+  - dataviz
 
 environment:
   sdk: ^3.13.5
 
-# Add regular dependencies here.
 dependencies:
-  # path: ^1.9.0
+  # Only svg_charts_web.dart imports it; svg_charts.dart is pure Dart.
+  web: ^1.1.0
 
 dev_dependencies:
+  dependency_validator: ^5.0.6
   lints: ^6.0.0
   test: ^1.25.6
+  xml: ^7.1.0
