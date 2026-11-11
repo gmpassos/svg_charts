@@ -256,22 +256,37 @@ String svgChartsCss([SvgChartTheme theme = SvgChartTheme.auto]) {
       '.$p-root .$p-grid,.$p-root .$p-axis,.$p-root .$p-line,'
       '.$p-root .$p-area,.$p-root text{pointer-events:none}'
       '.$p-root [data-hint]{cursor:default}'
-      // A chart whose marks are clickable (svg_charts_web's insertChart
+      // A chart whose marks are clickable (svg_charts_web's insertSVGChart
       // with onMark) says so with the pointer.
       '.$p-clickable [data-index]{cursor:pointer}',
     )
-    ..write(_colorVariables(theme, theme.palette, ''))
+    ..write(_colorVariables(theme, theme.palette))
     ..write(_colorRules(theme));
   final dark = theme.darkPalette;
   if (dark != null) {
     // The media query follows the system; `data-theme` on the root element
     // (a page's theme switch) wins both ways. Only the variables change:
     // the rules read them.
+    //
+    // Each scope twice: the chart inside a page (`:root … .svgc-root`), and
+    // a standalone .svg file, where the chart's root *is* `:root` (a
+    // descendant selector would never match it).
+    final p = theme.prefix;
     out
       ..write('@media (prefers-color-scheme:dark){')
-      ..write(_colorVariables(theme, dark, ':root:not([data-theme="light"]) '))
+      ..write(
+        _colorVariables(theme, dark, [
+          ':root:not([data-theme="light"]) .$p-root',
+          ':root.$p-root:not([data-theme="light"])',
+        ]),
+      )
       ..write('}')
-      ..write(_colorVariables(theme, dark, ':root[data-theme="dark"] '));
+      ..write(
+        _colorVariables(theme, dark, [
+          ':root[data-theme="dark"] .$p-root',
+          ':root.$p-root[data-theme="dark"]',
+        ]),
+      );
   }
   return out.toString();
 }
@@ -294,15 +309,19 @@ List<(String, String)> _paletteColors(SvgPalette palette) => [
   for (final (i, hex) in palette.sequential.indexed) ('seq-${i + 1}', hex),
 ];
 
-/// [palette]'s internal colour properties on the chart root, under
-/// [scope].
-String _colorVariables(SvgChartTheme theme, SvgPalette palette, String scope) {
+/// [palette]'s internal colour properties on the chart root, for the
+/// [selectors] (by default every chart root).
+String _colorVariables(
+  SvgChartTheme theme,
+  SvgPalette palette, [
+  List<String>? selectors,
+]) {
   final p = theme.prefix;
   final declarations = [
     for (final (name, hex) in _paletteColors(palette))
       '--$p-c-$name:var(--$p-$name,$hex)',
   ];
-  return '$scope.$p-root{${declarations.join(';')}}';
+  return '${(selectors ?? ['.$p-root']).join(',')}{${declarations.join(';')}}';
 }
 
 /// The colour rules: every scheme's, as they read the internal properties.
@@ -327,13 +346,25 @@ String _colorRules(SvgChartTheme theme) {
   // Rings between overlapping marks and slices: the surface colour.
   rule('dot', 'stroke', 'surface');
   rule('slice', 'stroke', 'surface');
-  out.write('.$p-root .$p-band:hover{fill:var(--$p-c-grid);fill-opacity:.5}');
+  // A line chart's band, shaded under the pointer: on its rect (whose own
+  // fill attribute an inherited fill wouldn't override).
+  out.write(
+    '.$p-root .$p-band:hover .$p-band-bg{fill:var(--$p-c-grid);'
+    'fill-opacity:.5}',
+  );
+  // A gauge's track and arc are strokes, not fills.
+  out.write(
+    '.$p-root .$p-gauge-track{fill:none;stroke:var(--$p-c-grid)}'
+    '.$p-root .$p-arc{fill:none}',
+  );
   for (var i = 1; i <= theme.palette.series.length; i++) {
-    // A series colours fills; a line takes it as its stroke instead, and
-    // keeps no fill.
+    // A series colours fills; a line or an arc takes it as its stroke
+    // instead, and keeps no fill.
     out.write(
-      '.$p-root .$p-s$i:not(.$p-line){fill:var(--$p-c-series-$i)}'
-      '.$p-root .$p-s$i.$p-line{stroke:var(--$p-c-series-$i)}',
+      '.$p-root .$p-s$i:not(.$p-line):not(.$p-arc)'
+      '{fill:var(--$p-c-series-$i)}'
+      '.$p-root .$p-s$i.$p-line,.$p-root .$p-s$i.$p-arc'
+      '{stroke:var(--$p-c-series-$i)}',
     );
   }
   for (var i = 1; i <= theme.palette.sequential.length; i++) {

@@ -2,6 +2,8 @@
 /// rates.
 library;
 
+import 'dart:math' as math;
+
 /// Formats a value for display: what charts use for hints, value labels and
 /// ticks. Any function of this shape can replace the defaults.
 typedef NumberFormatter = String Function(num value);
@@ -39,7 +41,11 @@ String formatNumber(num value) {
   if (value == value.roundToDouble() && abs < 1e15) {
     return groupThousands(value.round());
   }
-  final digits = abs >= 100 ? 1 : (abs >= 1 ? 2 : 3);
+  // Below 1, three significant digits (0.123, 0.000412): a small value
+  // never reads "0", nor a small negative one "-0".
+  final digits = abs >= 100
+      ? 1
+      : (abs >= 1 ? 2 : _decimalsFor(abs, significant: 3));
   final fixed = abs.toStringAsFixed(digits);
   final dot = fixed.indexOf('.');
   // From 1e21 up toStringAsFixed is exponential ("1e+21"): kept as is.
@@ -74,7 +80,19 @@ String formatCompact(num value) {
     return '$sign${written(u)}${units[u].$2}';
   }
   if (abs == abs.roundToDouble()) return '$sign${abs.round()}';
-  return '$sign${_trimmed(abs, abs >= 10 ? 1 : 2)}';
+  // Below 1, two significant digits: ticks of 0.0002 read "0.0002", not "0".
+  final digits = abs >= 10
+      ? 1
+      : (abs >= 1 ? 2 : _decimalsFor(abs, significant: 2));
+  return '$sign${_trimmed(abs, digits)}';
+}
+
+/// The decimals that write [abs] (in (0, 1)) with [significant]
+/// significant digits: 0.25 → 2, 0.0004 → 4 (for 2). Capped at 12, past
+/// which a value is noise to a chart.
+int _decimalsFor(num abs, {required int significant}) {
+  final leadingZeros = -(math.log(abs) / math.ln10).floor() - 1;
+  return (leadingZeros + significant).clamp(significant, 12);
 }
 
 /// [v] to [digits] decimals, trailing zeros dropped.

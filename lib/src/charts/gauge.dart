@@ -203,16 +203,16 @@ class Gauge implements SvgChart {
     });
     if (rate > 0) {
       w.empty('path', {
-        'class': '${theme.cls('gauge-arc')} ${seriesClass(theme, color)}',
+        // `arc`: the theme strokes it in the series colour (and the dark
+        // scheme's), with no fill.
+        'class':
+            '${theme.cls('gauge-arc')} ${theme.cls('arc')} '
+            '${seriesClass(theme, color)}',
         'd': arc(0, math.max(rate, 0.005)),
         'fill': 'none',
         'stroke': theme.palette.seriesColor(color),
         'stroke-width': thick,
         'stroke-linecap': 'round',
-        // The series rule paints fills; this arc is a stroke.
-        'style':
-            'fill:none;stroke:var(--${theme.prefix}-series-${color % theme.palette.series.length + 1},'
-            '${theme.palette.seriesColor(color)})',
       });
     }
     w

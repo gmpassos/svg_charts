@@ -220,12 +220,20 @@ class ColumnChart implements SvgChart {
     final y = frame.scale;
     // The baseline: zero, or the axis' end nearest it.
     final base = y(math.max(frame.ticks.first, math.min(0, frame.ticks.last)));
+    // A value past an explicit yMin / yMax is cut at the axis' end, never
+    // drawn over the title, legend or labels (its hint keeps the value).
+    double yIn(num v) => y(v).clamp(area.top, area.bottom);
     final slot = n == 0 ? 0.0 : area.width / n;
     final groupW = slot * (1 - groupGap.clamp(0, 0.9));
     final k = stacked ? 1 : math.max(1, series.length);
     final barW = math.max(1.0, (groupW - 2 * (k - 1)) / k);
     String label(int i) => i < labels.length ? labels[i] : '${i + 1}';
-    final totals = [for (final s in series) shares ? totalOf(s.values) : null];
+    // Through at(): NaN and infinity are gaps here, as everywhere (raw, one
+    // NaN would make no whole, and no share would show).
+    final totals = [
+      for (final s in series)
+        shares ? totalOf([for (var i = 0; i < n; i++) at(s, i)]) : null,
+    ];
     final single = series.length == 1;
 
     w.open('g', {'class': theme.cls('marks')});
@@ -259,11 +267,11 @@ class ColumnChart implements SvgChart {
           } else {
             down = to;
           }
-          y0 = y(from);
-          y1 = y(to);
+          y0 = yIn(from);
+          y1 = yIn(to);
         } else {
           y0 = base;
-          y1 = y(v);
+          y1 = yIn(v);
         }
         final mark = ChartMark(
           index: i,

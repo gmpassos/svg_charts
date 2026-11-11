@@ -10,7 +10,7 @@ import 'package:web/web.dart' as web;
 import '../gallery_charts.dart';
 
 void main() {
-  installChartHints();
+  installSVGChartHints();
   final log = web.document.querySelector('#log');
   final grid = web.document.querySelector('#charts');
   if (grid == null) return;
@@ -25,7 +25,7 @@ void main() {
       ..append(host)
       ..append(caption);
     grid.append(figure);
-    insertChart(
+    insertSVGChart(
       host,
       chart,
       onMark: (index, series) => log?.textContent =

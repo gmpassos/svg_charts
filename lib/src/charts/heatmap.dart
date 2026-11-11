@@ -142,14 +142,15 @@ class Heatmap implements SvgChart {
               ? 0.0
               : math.max(0.0, (total - gridTop - legendH - 8) / rows));
     if (headerH > 0) {
-      final shown = visibleLabels(
-        [for (var c = 0; c < cols; c++) colLabel(c)],
-        gridW,
-        small,
-        XLabels.auto,
-      );
+      // Cut first, then thinned by the cut widths: one long header must
+      // not hide all the others (as writeXLabels does).
+      final headers = [
+        for (var c = 0; c < cols; c++)
+          truncateText(colLabel(c), cellW * 3, small),
+      ];
+      final shown = visibleLabels(headers, gridW, small, XLabels.auto);
       for (final c in shown) {
-        w.element('text', truncateText(colLabel(c), cellW * 3, small), {
+        w.element('text', headers[c], {
           'class': '${theme.cls('tick')} ${theme.cls('small')}',
           'x': left + (c + 0.5) * cellW,
           'y': top + small,

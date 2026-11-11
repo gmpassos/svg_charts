@@ -52,7 +52,7 @@ Hovering the April column shows `Apr · orders: 64 · 8% of the total`.
 | **Parts of a whole** | `PieChart` (and `donut:`, with an "Other" slice past `maxSlices`) |
 | **One value** | `Meter`, `Gauge` |
 | **Grids** | `Heatmap` |
-| **Browser** | `installChartHints`, `insertChart` (`package:svg_charts/svg_charts_web.dart`) |
+| **Browser** | `installSVGChartHints`, `insertSVGChart` (`package:svg_charts/svg_charts_web.dart`) |
 | **Building blocks** | `SvgChartTheme`, `SvgPalette`, `svgChartsCss`, `niceTicks`, `LinearScale`, `markHint`, `formatNumber`, `formatCompact`, `formatRate`, `SvgWriter` |
 
 Run `dart run example/gallery.dart` to write every chart to `doc/images/` and
@@ -246,8 +246,8 @@ import 'package:svg_charts/svg_charts_web.dart';
 import 'package:web/web.dart' as web;
 
 void main() {
-  installChartHints(); // once per page: harmless to call again
-  insertChart(
+  installSVGChartHints(); // once per page: harmless to call again
+  insertSVGChart(
     web.document.querySelector('#orders')!,
     ColumnChart.of([12, 30, 18], labels: ['Jan', 'Feb', 'Mar']),
     onMark: (index, series) => print('clicked category $index'),
@@ -255,7 +255,7 @@ void main() {
 }
 ```
 
-`installChartHints` shows each mark's hint in one styled tooltip:
+`installSVGChartHints` shows each mark's hint in one styled tooltip:
 
 - it follows the mouse, and appears on a tap on touch screens;
 - it hides on scroll, when the pointer leaves the window, and when a click
@@ -263,7 +263,7 @@ void main() {
 - it stays inside the window;
 - it replaces the native `<title>` tooltip, so only one shows.
 
-`insertChart` puts a chart in an element, and with `onMark` makes its marks
+`insertSVGChart` puts a chart in an element, and with `onMark` makes its marks
 clickable. The click gives the mark's category index and series.
 
 See `example/web/` for a page with every chart.

@@ -25,7 +25,9 @@ bool isDrawable(num? v) => v != null && v.isFinite;
 num niceStep(num span, int maxTicks) {
   if (!span.isFinite || span <= 0) return 1;
   final raw = span / math.max(1, maxTicks);
-  final magnitude = math.pow(10, (math.log(raw) / math.ln10).floor());
+  // A double power: int arithmetic would wrap past 2^63 on the VM
+  // (10 × 10^18), giving a negative step (the web would not).
+  final magnitude = math.pow(10.0, (math.log(raw) / math.ln10).floor());
   // raw / magnitude is in [1, 10), so one of these always fits.
   final m = const [
     1,
@@ -68,9 +70,11 @@ List<num> niceTicks(num min, num max, {int maxTicks = 5}) {
 
 /// [v] rounded to [step]'s decimal precision (no `0.30000000000000004`).
 num _roundToStep(num v, num step) {
-  final decimals = step >= 1
-      ? 0
-      : (-(math.log(step) / math.ln10).floor() + 1).clamp(0, 12);
+  // A whole step needs no rounding; and past 1e15 rounding through an int
+  // would saturate on the VM at 9.2e18 (the ticks would never reach the
+  // top), while the web would stay exact.
+  if (step >= 1) return v.abs() < 1e15 ? v.round() : v.roundToDouble();
+  final decimals = (-(math.log(step) / math.ln10).floor() + 1).clamp(0, 12);
   final factor = math.pow(10, decimals);
   final r = (v * factor).round() / factor;
   return r == r.roundToDouble() && r.abs() < 1e15 ? r.round() : r;

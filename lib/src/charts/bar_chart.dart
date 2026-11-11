@@ -275,7 +275,11 @@ class BarChart implements SvgChart {
       right,
     );
     final zero = x(0);
-    final totals = [for (final s in series) shares ? totalOf(s.values) : null];
+    // Through at(): NaN and infinity are gaps here, as everywhere.
+    final totals = [
+      for (final s in series)
+        shares ? totalOf([for (var i = 0; i < n; i++) at(s, i)]) : null,
+    ];
     final single = series.length == 1;
 
     w.open('g', {'class': theme.cls('marks')});

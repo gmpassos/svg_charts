@@ -21,8 +21,8 @@ void main() {
   test('auto: dark colours under the media query and data-theme', () {
     final css = svgChartsCss(SvgChartTheme.auto);
     expect(css, contains('@media (prefers-color-scheme:dark)'));
-    expect(css, contains(':root:not([data-theme="light"]) .svgc-root{'));
-    expect(css, contains(':root[data-theme="dark"] .svgc-root{'));
+    expect(css, contains(':root:not([data-theme="light"]) .svgc-root,'));
+    expect(css, contains(':root[data-theme="dark"] .svgc-root,'));
     expect(css, contains('var(--svgc-series-1,#3987e5)'));
   });
 

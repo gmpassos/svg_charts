@@ -234,10 +234,23 @@ class LineChart implements SvgChart {
         plot.left + (n <= 1 ? plot.width / 2 : i * plot.width / (n - 1));
     String label(int i) => i < labels.length ? labels[i] : '${i + 1}';
     final base = y(math.max(frame.ticks.first, math.min(0, frame.ticks.last)));
-    final names = [
-      for (final (i, s) in series.indexed)
-        s.name.isEmpty && series.length > 1 ? 'series ${i + 1}' : s.name,
-    ];
+    // A value past an explicit yMin / yMax is drawn at the axis' end, never
+    // over the title, legend or labels.
+    double yIn(num v) => y(v).clamp(plot.top, plot.bottom);
+    // The series' names in hints: unnamed ones numbered, and each unique
+    // (a repeated name, or one equal to a number given to an unnamed
+    // series, gets " (2)", " (3)"…), as the hints key values by name.
+    final names = <String>[];
+    for (final (i, s) in series.indexed) {
+      final given = s.name.isEmpty && series.length > 1
+          ? 'series ${i + 1}'
+          : s.name;
+      var name = given;
+      for (var k = 2; names.contains(name); k++) {
+        name = '$given ($k)';
+      }
+      names.add(name);
+    }
     Map<String, num?> valuesAt(int i) => {
       for (final (s, name) in names.indexed) name: at(series[s], i),
     };
@@ -263,6 +276,7 @@ class LineChart implements SvgChart {
       );
       w
         ..empty('rect', {
+          'class': theme.cls('band-bg'),
           'x': left,
           'y': plot.top,
           'width': right - left,
@@ -293,7 +307,7 @@ class LineChart implements SvgChart {
       }
       w.open('g', {'class': '${theme.cls('series')} $color'});
       for (final run in runs) {
-        final pts = [for (final i in run) (x(i), y(at(data, i)!))];
+        final pts = [for (final i in run) (x(i), yIn(at(data, i)!))];
         final line = smooth ? _monotonePath(pts) : _polylinePath(pts);
         if (area && pts.length > 1) {
           w.empty('path', {
@@ -348,7 +362,7 @@ class LineChart implements SvgChart {
             ..empty('circle', {
               'class': '${theme.cls('dot')} $color',
               'cx': x(i),
-              'cy': y(v),
+              'cy': yIn(v),
               'r': 4,
               'fill': hex,
               'stroke': theme.palette.surface,
@@ -357,7 +371,7 @@ class LineChart implements SvgChart {
             ..empty('circle', {
               'class': theme.cls('hit'),
               'cx': x(i),
-              'cy': y(v),
+              'cy': yIn(v),
               'r': 10,
               'fill': 'transparent',
             })

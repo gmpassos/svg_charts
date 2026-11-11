@@ -2,6 +2,10 @@
 /// output, and an element buffer.
 library;
 
+/// The characters [escapeXml] escapes: compiled once, as every label,
+/// attribute and hint of every chart is checked against it.
+final _xmlSpecial = RegExp('[&<>"\']');
+
 /// [text] escaped for SVG/XML text and attribute values: `&`, `<`, `>`,
 /// `"` and `'`.
 ///
@@ -9,7 +13,7 @@ library;
 /// `<b>R&D</b>` is drawn as those characters, never as markup.
 String escapeXml(String text) {
   // Most labels need no escaping: skip the buffer for them.
-  if (!text.contains(RegExp('[&<>"\']'))) return text;
+  if (!text.contains(_xmlSpecial)) return text;
   final out = StringBuffer();
   for (final c in text.split('')) {
     out.write(switch (c) {

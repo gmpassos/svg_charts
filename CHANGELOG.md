@@ -35,9 +35,9 @@ Dark mode follows `prefers-color-scheme` or `data-theme`. With
 
 **Browser** (`package:svg_charts/svg_charts_web.dart`):
 
-- `installChartHints`: one styled tooltip that follows the mouse, shows on a
+- `installSVGChartHints`: one styled tooltip that follows the mouse, shows on a
   tap, hides on scroll, and replaces the native one;
-- `insertChart`: puts a chart in an element, with `onMark` for clicks.
+- `insertSVGChart`: puts a chart in an element, with `onMark` for clicks.
 
 **Building blocks:** `niceTicks`, `LinearScale`, `markHint`, `pointHint`,
 `shareOf`, `totalOf`, `formatNumber`, `formatCompact`, `formatRate`,

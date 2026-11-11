@@ -7,8 +7,8 @@
 /// import 'package:web/web.dart' as web;
 ///
 /// void main() {
-///   installChartHints();
-///   insertChart(
+///   installSVGChartHints();
+///   insertSVGChart(
 ///     web.document.querySelector('#orders')!,
 ///     ColumnChart.of([12, 30, 18], labels: ['Jan', 'Feb', 'Mar']),
 ///     onMark: (index, series) => print('clicked $index'),
@@ -16,7 +16,7 @@
 /// }
 /// ```
 ///
-/// Charts carry native `<title>` tooltips already; [installChartHints]
+/// Charts carry native `<title>` tooltips already; [installSVGChartHints]
 /// replaces them with one styled tooltip that follows the pointer, shows on
 /// a tap on touch screens, and never lags behind a scroll.
 library;
@@ -32,9 +32,9 @@ import 'src/theme.dart' show SvgChartTheme;
 
 /// The tooltip's default styles for [prefix]: the inverse of the page's
 /// colours (dark on light pages), from the theme's custom properties with
-/// fallbacks. [installChartHints] adds them to the page unless told not
+/// fallbacks. [installSVGChartHints] adds them to the page unless told not
 /// to; a page with its own styles for `.svgc-hint` can leave them out.
-String chartHintCss([String prefix = 'svgc']) {
+String svgChartHintCss([String prefix = 'svgc']) {
   const light = SvgChartTheme.auto;
   final p = light.palette;
   return '.$prefix-hint{position:fixed;z-index:2147483000;pointer-events:none;'
@@ -56,16 +56,16 @@ String chartHintCss([String prefix = 'svgc']) {
 }
 
 /// The installed hint layers, by class prefix: one tooltip per prefix per
-/// page, so calling [installChartHints] again (from every component that
+/// page, so calling [installSVGChartHints] again (from every component that
 /// draws a chart, say) is harmless.
-final Map<String, ChartHints> _hintsCache = {};
+final Map<String, SVGChartHints> _hintsCache = {};
 
 /// The hint layer of a page: one tooltip element shown over the chart mark
 /// under the pointer.
 ///
-/// Get it with [installChartHints]; [remove] takes it out of the page.
-class ChartHints {
-  ChartHints._(this.prefix, this.tooltip, this._style);
+/// Get it with [installSVGChartHints]; [remove] takes it out of the page.
+class SVGChartHints {
+  SVGChartHints._(this.prefix, this.tooltip, this._style);
 
   /// The class prefix of the charts it serves.
   final String prefix;
@@ -79,7 +79,11 @@ class ChartHints {
       [];
 
   web.Element? _shown;
-  var _tipWidth = 0, _tipHeight = 0;
+
+  /// The tooltip's size for the mark shown, resolved once per mark by
+  /// [show]: measuring on every pointer move would force a layout each
+  /// time, and the size only changes with the hint's text.
+  ({int width, int height}) _tipSizeResolved = (width: 0, height: 0);
 
   /// The mark the tooltip shows, if any.
   web.Element? get shown => _shown;
@@ -118,13 +122,16 @@ class ChartHints {
         ..left = '0px'
         ..top = '0px';
       tooltip.classList.add('$prefix-hint-on');
-      _tipWidth = tooltip.offsetWidth;
-      _tipHeight = tooltip.offsetHeight;
+      _tipSizeResolved = (
+        width: tooltip.offsetWidth,
+        height: tooltip.offsetHeight,
+      );
     }
+    final (:width, :height) = _tipSizeResolved;
     final vw = web.window.innerWidth, vh = web.window.innerHeight;
     var left = x + 14, top = y + 14;
-    if (left + _tipWidth > vw - 8) left = math.max(8, x - _tipWidth - 14);
-    if (top + _tipHeight > vh - 8) top = math.max(8, y - _tipHeight - 14);
+    if (left + width > vw - 8) left = math.max(8, x - width - 14);
+    if (top + height > vh - 8) top = math.max(8, y - height - 14);
     tooltip.style
       ..left = '${left.round()}px'
       ..top = '${top.round()}px';
@@ -207,9 +214,9 @@ class ChartHints {
 /// Installs the page's chart hint layer for charts of [prefix] (the
 /// theme's class prefix), once: later calls return the same one.
 ///
-/// With [injectStyle], the tooltip's default styles ([chartHintCss]) are
+/// With [injectStyle], the tooltip's default styles ([svgChartHintCss]) are
 /// added to the document's head.
-ChartHints installChartHints({
+SVGChartHints installSVGChartHints({
   String prefix = 'svgc',
   bool injectStyle = true,
 }) {
@@ -222,11 +229,14 @@ ChartHints installChartHints({
     ..setAttribute('aria-hidden', 'true');
   web.HTMLStyleElement? style;
   if (injectStyle) {
-    style = web.HTMLStyleElement()..textContent = chartHintCss(prefix);
+    style = web.HTMLStyleElement()..textContent = svgChartHintCss(prefix);
     web.document.head?.append(style);
   }
-  web.document.body?.append(tip);
-  final hints = ChartHints._(prefix, tip, style).._install();
+  // Before <body> is parsed (a script in <head>), into the root element:
+  // a fixed element shows from there too, and the layer is cached, so it
+  // must be in the page from the first call.
+  (web.document.body ?? web.document.documentElement)?.append(tip);
+  final hints = SVGChartHints._(prefix, tip, style).._install();
   return _hintsCache[prefix] = hints;
 }
 
@@ -237,14 +247,14 @@ ChartHints installChartHints({
 /// (the category, x position or slice) and `data-series` (`null` when the
 /// mark has none, as a line chart's band); the chart's marks then show a
 /// pointer. With [hints] (the default), the hint layer is installed.
-web.Element? insertChart(
+web.Element? insertSVGChart(
   web.Element host,
   SvgChart chart, {
   void Function(int index, int? series)? onMark,
   bool hints = true,
   String prefix = 'svgc',
 }) {
-  if (hints) installChartHints(prefix: prefix);
+  if (hints) installSVGChartHints(prefix: prefix);
   host.innerHTML = chart.render().toJS;
   final svg = host.querySelector('svg');
   if (svg == null || onMark == null) return svg;

@@ -20,7 +20,7 @@ void main() {
 
   tearDown(() {
     host.remove();
-    installChartHints().remove();
+    installSVGChartHints().remove();
   });
 
   /// A pointer event of [type] on [target] at fractional coordinates, as a
@@ -50,9 +50,9 @@ void main() {
       web.document.querySelector('.svgc-hint')! as web.HTMLDivElement;
   bool shown() => tip().classList.contains('svgc-hint-on');
 
-  test('installChartHints: one tooltip, its styles, once', () {
-    final a = installChartHints();
-    final b = installChartHints();
+  test('installSVGChartHints: one tooltip, its styles, once', () {
+    final a = installSVGChartHints();
+    final b = installSVGChartHints();
     expect(identical(a, b), isTrue);
     expect(web.document.querySelectorAll('.svgc-hint').length, 1);
     expect(a.tooltip.getAttribute('role'), 'tooltip');
@@ -67,7 +67,7 @@ void main() {
   });
 
   test('hover shows the mark\'s hint and drops its native title', () {
-    final svg = insertChart(
+    final svg = insertSVGChart(
       host,
       ColumnChart.of([25, 75], name: 'orders', labels: ['open', 'paid']),
     )!;
@@ -89,7 +89,7 @@ void main() {
   });
 
   test('a scroll hides it; a tap shows it on touch screens', () {
-    final svg = insertChart(host, LineChart.of([1, 2, 3]))!;
+    final svg = insertSVGChart(host, LineChart.of([1, 2, 3]))!;
     final band = svg.querySelector('.svgc-band rect')!;
     pointer(band, 'pointermove');
     expect(shown(), isTrue);
@@ -109,7 +109,7 @@ void main() {
   });
 
   test('near the window\'s edge the tooltip flips to stay inside', () {
-    final svg = insertChart(host, ColumnChart.of([5]))!;
+    final svg = insertSVGChart(host, ColumnChart.of([5]))!;
     final w = web.window.innerWidth.toDouble();
     final h = web.window.innerHeight.toDouble();
     pointer(svg.querySelector('.svgc-bar')!, 'pointermove', x: w - 2, y: h - 2);
@@ -121,7 +121,7 @@ void main() {
   });
 
   test('a mark removed by a click takes its tooltip away', () async {
-    final svg = insertChart(host, ColumnChart.of([5]))!;
+    final svg = insertSVGChart(host, ColumnChart.of([5]))!;
     final bar = svg.querySelector('.svgc-bar')!;
     pointer(bar, 'pointermove');
     expect(shown(), isTrue);
@@ -132,19 +132,19 @@ void main() {
   });
 
   test('marks of another prefix are not this layer\'s', () {
-    insertChart(
+    insertSVGChart(
       host,
       ColumnChart.of([5], theme: const SvgChartTheme(prefix: 'other')),
       hints: false,
     );
-    installChartHints();
+    installSVGChartHints();
     pointer(host.querySelector('.other-bar')!, 'pointermove');
     expect(shown(), isFalse);
   });
 
-  test('insertChart: onMark gets the index and series of a click', () {
+  test('insertSVGChart: onMark gets the index and series of a click', () {
     final clicks = <(int, int?)>[];
-    final svg = insertChart(
+    final svg = insertSVGChart(
       host,
       ColumnChart(const [
         Series([1, 2], name: 'a'),
@@ -164,7 +164,7 @@ void main() {
     expect(clicks, [(1, 1)]);
 
     // A line's band has no series.
-    final line = insertChart(
+    final line = insertSVGChart(
       host,
       LineChart.of([1, 2]),
       onMark: (i, s) {
@@ -179,22 +179,22 @@ void main() {
     expect(clicks.last, (0, null));
   });
 
-  test('insertChart without onMark: not clickable', () {
-    final svg = insertChart(host, ColumnChart.of([1]))!;
+  test('insertSVGChart without onMark: not clickable', () {
+    final svg = insertSVGChart(host, ColumnChart.of([1]))!;
     expect(svg.classList.contains('svgc-clickable'), isFalse);
   });
 
   test('remove takes the tooltip, styles and listeners away', () {
-    final hints = installChartHints(injectStyle: false);
+    final hints = installSVGChartHints(injectStyle: false);
     expect(web.document.querySelector('.svgc-hint'), isNotNull);
     hints.remove();
     expect(web.document.querySelector('.svgc-hint'), isNull);
     // A new one after removal.
-    expect(identical(installChartHints(), hints), isFalse);
+    expect(identical(installSVGChartHints(), hints), isFalse);
   });
 
-  test('chartHintCss: the inverse colours, with properties', () {
-    final css = chartHintCss('x');
+  test('svgChartHintCss: the inverse colours, with properties', () {
+    final css = svgChartHintCss('x');
     expect(css, contains('.x-hint{'));
     expect(css, contains('background:var(--x-text,#0b0b0b)'));
     expect(css, contains('prefers-color-scheme:dark'));
