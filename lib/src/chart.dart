@@ -197,7 +197,6 @@ double writeLegend(
   required double x,
   required double y,
   required double width,
-  List<int>? colors,
 }) {
   final rows = legendRows(theme, names, width);
   final rowH = legendRowHeight(theme);
@@ -206,16 +205,15 @@ double writeLegend(
     var cx = x;
     final cy = y + r * rowH;
     for (final i in row) {
-      final color = colors?[i] ?? i;
       w
         ..empty('rect', {
-          'class': '${seriesClass(theme, color)} ${theme.cls('swatch')}',
+          'class': '${seriesClass(theme, i)} ${theme.cls('swatch')}',
           'x': cx,
           'y': cy + (rowH - 10) / 2,
           'width': 10,
           'height': 10,
           'rx': 2,
-          'fill': theme.palette.seriesColor(color),
+          'fill': theme.palette.seriesColor(i),
         })
         ..element('text', names[i], {
           'class': '${theme.cls('label')} ${theme.cls('small')}',
@@ -257,7 +255,7 @@ class PlotArea {
 /// The frame of a chart with a value axis: what [writeFrame] laid out.
 class Frame {
   /// A frame of [area] with the value [scale] and its [ticks].
-  const Frame(this.area, this.scale, this.ticks, {this.legendY});
+  const Frame(this.area, this.scale, this.ticks);
 
   /// Where the data goes.
   final PlotArea area;
@@ -267,9 +265,6 @@ class Frame {
 
   /// The value axis' ticks.
   final List<num> ticks;
-
-  /// Where a bottom legend goes, when there is one.
-  final double? legendY;
 }
 
 /// The value domain for [values] with [baseline] included (bars start at
@@ -292,14 +287,14 @@ class Frame {
 /// Lays out and writes a cartesian chart's frame:
 ///
 /// - the [title] (drawn, bold) and the legend (above or below);
-/// - the value axis: nice ticks over [domain], grid lines and tick labels
-///   ([tickFormat]), vertical (values up the left) or, with [horizontal],
-///   along the bottom;
-/// - room for the category labels ([categoryLabels] on, below the plot or,
-///   with [horizontal], left of it, [categoryLabelWidth] wide).
+/// - the value axis up the left: nice ticks over [domain], grid lines and
+///   tick labels ([tickFormat]);
+/// - room for the category labels under the plot ([categoryLabels]) and
+///   the [caption].
 ///
 /// The tick labels' width decides the left margin, so long numbers never
-/// run off the edge.
+/// run off the edge. (Horizontal bars, labelled directly, lay themselves
+/// out: [BarChart] has no value axis.)
 Frame writeFrame(
   SvgWriter w,
   SvgChartTheme theme, {
@@ -310,8 +305,6 @@ Frame writeFrame(
   List<String> legend = const [],
   LegendPosition legendPosition = LegendPosition.auto,
   bool categoryLabels = true,
-  double categoryLabelWidth = 0,
-  bool horizontal = false,
   NumberFormatter tickFormat = formatCompact,
   bool grid = true,
   String? caption,
@@ -347,47 +340,39 @@ Frame writeFrame(
   }
   if (caption != null && caption.isNotEmpty) bottom -= small + 6;
   final captionY = bottom + small + 6;
-  // Category labels under the plot (vertical charts), or the value ticks
-  // under it (horizontal ones).
-  if (horizontal || categoryLabels) bottom -= small + 8;
-  // Tall enough for the ticks: about one per 32 px (40 across).
+  if (categoryLabels) bottom -= small + 8;
+  // About one tick per 32 px of height.
   final ticks = niceTicks(
     domain.min,
     domain.max,
-    maxTicks: horizontal
-        ? math.max(2, (width - categoryLabelWidth) ~/ 72)
-        : math.max(2, (bottom - top) ~/ 32),
+    maxTicks: math.max(2, (bottom - top) ~/ 32),
   );
   final tickTexts = [for (final t in ticks) tickFormat(t)];
   final tickWidth = tickTexts.fold<double>(
     0,
     (m, t) => math.max(m, estimateTextWidth(t, small)),
   );
-  final left = horizontal ? 8 + categoryLabelWidth : 8 + tickWidth + 6;
-  final right = width - (horizontal ? 8 + tickWidth / 2 : 8);
-  final area = PlotArea(left, top, right, bottom);
-  final scale = horizontal
-      ? LinearScale(ticks.first, ticks.last, area.left, area.right)
-      : LinearScale(ticks.first, ticks.last, area.bottom, area.top);
+  final area = PlotArea(8 + tickWidth + 6, top, width - 8, bottom);
+  final scale = LinearScale(ticks.first, ticks.last, area.bottom, area.top);
   w.open('g', {'class': theme.cls('ticks')});
   for (final (i, t) in ticks.indexed) {
-    final p = scale(t);
+    final y = scale(t);
     final zero = t == 0;
     if (grid || zero) {
       w.empty('line', {
         'class': theme.cls(zero ? 'axis' : 'grid'),
-        'x1': horizontal ? p : area.left,
-        'y1': horizontal ? area.top : p,
-        'x2': horizontal ? p : area.right,
-        'y2': horizontal ? area.bottom : p,
+        'x1': area.left,
+        'y1': y,
+        'x2': area.right,
+        'y2': y,
         'stroke': zero ? theme.palette.axis : theme.palette.grid,
       });
     }
     w.element('text', tickTexts[i], {
       'class': '${theme.cls('tick')} ${theme.cls('small')}',
-      'x': horizontal ? p : area.left - 6,
-      'y': horizontal ? area.bottom + small + 4 : p + small * 0.35,
-      'text-anchor': horizontal ? 'middle' : 'end',
+      'x': area.left - 6,
+      'y': y + small * 0.35,
+      'text-anchor': 'end',
       'fill': theme.palette.muted,
     });
   }
@@ -396,8 +381,8 @@ Frame writeFrame(
     w.empty('line', {
       'class': theme.cls('axis'),
       'x1': area.left,
-      'y1': horizontal ? area.top : area.bottom,
-      'x2': horizontal ? area.left : area.right,
+      'y1': area.bottom,
+      'x2': area.right,
       'y2': area.bottom,
       'stroke': theme.palette.axis,
     });
@@ -414,7 +399,7 @@ Frame writeFrame(
   if (legendY != null) {
     writeLegend(w, theme, legend, x: 8, y: legendY, width: width - 16);
   }
-  return Frame(area, scale, ticks, legendY: legendY);
+  return Frame(area, scale, ticks);
 }
 
 /// The indexes of [labels] to write along an axis [area].width wide, one

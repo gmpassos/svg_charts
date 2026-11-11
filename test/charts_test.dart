@@ -49,6 +49,21 @@ void main() {
       expect(byClass(root, 'mark').last.getAttribute('data-index'), isNull);
     });
 
+    test('a legend taller than the chart: what fits, then "+N more"', () {
+      final root = parseSvg(
+        PieChart.of([8, 7, 6, 5, 4, 3, 2, 1], height: 90).render(),
+      );
+      final legend = byClass(root, 'legend').single;
+      final texts = textsOf(legend);
+      expect(texts.last, matches(RegExp(r'^\+\d more$')));
+      expect(texts.length, lessThan(8));
+      // Every slice still drawn, with its hint.
+      expect(byClass(root, 'slice'), hasLength(8));
+      for (final t in legend.findElements('text')) {
+        expect(numAttr(t, 'y'), inInclusiveRange(0, 90));
+      }
+    });
+
     test('one slice is a whole disc; a donut ring cuts its hole', () {
       final disc = parseSvg(PieChart.of([5]).render());
       final d = byClass(disc, 'slice').single.getAttribute('d')!;

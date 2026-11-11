@@ -6,7 +6,7 @@ const galleryFingerprints = {
   'column_stacked': 956601352,
   'column_negative': 2785114857,
   'histogram': 3095932254,
-  'bar': 1755330119,
+  'bar': 636697877,
   'bar_stacked': 1173002798,
   'line': 2706524758,
   'area': 2244919114,

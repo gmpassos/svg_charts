@@ -26,10 +26,14 @@ num niceStep(num span, int maxTicks) {
   if (!span.isFinite || span <= 0) return 1;
   final raw = span / math.max(1, maxTicks);
   final magnitude = math.pow(10, (math.log(raw) / math.ln10).floor());
-  for (final m in const [1, 2, 2.5, 5, 10]) {
-    if (m * magnitude >= raw) return m * magnitude;
-  }
-  return 10 * magnitude;
+  // raw / magnitude is in [1, 10), so one of these always fits.
+  final m = const [
+    1,
+    2,
+    2.5,
+    5,
+  ].firstWhere((m) => m * magnitude >= raw, orElse: () => 10);
+  return m * magnitude;
 }
 
 /// Round tick values covering [min]–[max], at most [maxTicks] intervals.

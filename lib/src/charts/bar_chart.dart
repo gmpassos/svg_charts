@@ -226,6 +226,7 @@ class BarChart implements SvgChart {
         ? n * rowH
         : math.max(0.0, total - top - (legendTop ? 0 : legendH) - 6);
     final row = n == 0 ? rowH : rowsH / n;
+    final rowText = row >= small + 2;
 
     // Columns: labels | bars | values.
     final labelCap = maxLabelWidth ?? width / 3;
@@ -290,18 +291,25 @@ class BarChart implements SvgChart {
     }
     for (final (r, i) in order.indexed) {
       final rowTop = top + r * row;
-      final barsH = math.max(2.0, row - 8);
-      final thick = math.max(1.0, (barsH - 2 * (k - 1)) / k);
-      w.element('text', truncateText(label(i), labelCap, small), {
-        'class':
-            '${theme.cls(mutedLabels.contains(i) ? 'tick' : 'label')} '
-            '${theme.cls('small')}',
-        'x': 8,
-        'y': rowTop + row / 2 + small * 0.35,
-        'fill': mutedLabels.contains(i)
-            ? theme.palette.muted
-            : theme.palette.textSecondary,
-      });
+      // Rows squeezed by a fixed height keep their bars inside them: the
+      // padding and the gaps between grouped bars shrink with the row.
+      final pad = math.min(4.0, row / 6);
+      final barsH = math.max(0.5, row - 2 * pad);
+      final gap = k > 1 ? math.min(2.0, barsH / (2 * k)) : 0.0;
+      final thick = math.max(0.5, (barsH - gap * (k - 1)) / k);
+      // Text only where a line of it fits (the hints still say it all).
+      if (rowText) {
+        w.element('text', truncateText(label(i), labelCap, small), {
+          'class':
+              '${theme.cls(mutedLabels.contains(i) ? 'tick' : 'label')} '
+              '${theme.cls('small')}',
+          'x': 8,
+          'y': rowTop + row / 2 + small * 0.35,
+          'fill': mutedLabels.contains(i)
+              ? theme.palette.muted
+              : theme.palette.textSecondary,
+        });
+      }
       num up = 0, down = 0;
       final stackTotal = stacked && shares
           ? totalOf([for (final s in series) at(s, i)])
@@ -317,7 +325,7 @@ class BarChart implements SvgChart {
       for (var s = 0; s < series.length; s++) {
         final v = at(series[s], i);
         if (v == null) continue;
-        final y = rowTop + 4 + (stacked ? 0 : s * (thick + 2));
+        final y = rowTop + pad + (stacked ? 0 : s * (thick + gap));
         final double from, to;
         if (stacked) {
           final start = v >= 0 ? up : down;
@@ -353,9 +361,9 @@ class BarChart implements SvgChart {
         w.empty('rect', {
           'class': theme.cls('hit'),
           'x': 0,
-          'y': stacked ? rowTop : y - 1,
+          'y': stacked ? rowTop : y - gap / 2,
           'width': width,
-          'height': stacked ? row : thick + 2,
+          'height': stacked ? row : thick + gap,
           'fill': 'transparent',
         });
         var lo = math.min(from, to), hi = math.max(from, to);
@@ -386,13 +394,16 @@ class BarChart implements SvgChart {
           });
         }
         // Grouped: each bar's value at its end.
-        if (valueLabels && !stacked && k > 1) {
+        if (valueLabels && !stacked && k > 1 && thick + gap >= small - 1) {
           _valueText(w, valueFormat(v), v, to, y + thick / 2, small);
         }
         w.close('g');
       }
       // One series, or a stack: the row's value at its end.
-      if (valueLabels && (k == 1 || stacked) && valueTexts[i] != null) {
+      if (rowText &&
+          valueLabels &&
+          (k == 1 || stacked) &&
+          valueTexts[i] != null) {
         final value = rowValue(i);
         final end = stacked ? x(value >= 0 ? up : down) : x(value);
         _valueText(w, valueTexts[i]!, value, end, rowTop + row / 2, small);

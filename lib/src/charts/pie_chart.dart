@@ -227,9 +227,14 @@ class PieChart implements SvgChart {
     if (legendW > 0) {
       final rowH = legendRowHeight(theme);
       final lx = width - legendW - 8;
-      var ly = cy - drawn.length * rowH / 2;
+      // As many entries as the height holds; past them, one "+N more" row
+      // (every slice keeps its hint).
+      final fit = math.max(1, (height - top - 8) ~/ rowH);
+      final shown = legendTexts.length <= fit ? legendTexts.length : fit - 1;
+      final rows = shown + (shown < legendTexts.length ? 1 : 0);
+      var ly = math.max(top, cy - rows * rowH / 2);
       w.open('g', {'class': theme.cls('legend')});
-      for (final (k, text) in legendTexts.indexed) {
+      for (final (k, text) in legendTexts.take(shown).indexed) {
         w
           ..empty('rect', {
             'class': '${seriesClass(theme, k)} ${theme.cls('swatch')}',
@@ -247,6 +252,14 @@ class PieChart implements SvgChart {
             'fill': theme.palette.textSecondary,
           });
         ly += rowH;
+      }
+      if (shown < legendTexts.length) {
+        w.element('text', '+${legendTexts.length - shown} more', {
+          'class': '${theme.cls('tick')} ${theme.cls('small')}',
+          'x': lx + 16,
+          'y': ly + rowH / 2 + small * 0.35,
+          'fill': theme.palette.muted,
+        });
       }
       w.close('g');
     }
