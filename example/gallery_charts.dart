@@ -21,10 +21,14 @@ const months = [
   'Dec',
 ];
 
+/// The README images' theme: light or dark by the viewer's system, on
+/// their own surface. An `<img>` follows the system's scheme, not the
+/// page's (GitHub's dark theme on a light system), so a transparent image
+/// would put light-scheme text on a dark page.
+const readmeTheme = SvgChartTheme(background: true);
+
 /// The gallery, by file name (without `.svg`), with [theme].
-Map<String, SvgChart> galleryCharts([
-  SvgChartTheme theme = SvgChartTheme.auto,
-]) => {
+Map<String, SvgChart> galleryCharts([SvgChartTheme theme = readmeTheme]) => {
   'column': ColumnChart.of(
     [42, 51, 38, 64, 72, 69, 80, 77, 61, 58, 66, 90],
     name: 'orders',
