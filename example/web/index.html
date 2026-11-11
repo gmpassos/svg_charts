@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>svg_charts web example</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; padding: 16px; font: 14px system-ui, sans-serif;
+      background: #f9f9f7; color: #0b0b0b; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0d0d0d; color: #f0efec; }
+    }
+    #charts { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+    figure { margin: 0; max-width: 100%; overflow-x: auto; }
+    figcaption { font-size: 12px; opacity: .6; }
+    #log { min-height: 1.4em; }
+  </style>
+  <script defer src="main.dart.js"></script>
+</head>
+<body>
+  <h1>svg_charts</h1>
+  <p>Hover a mark for its hint (tap on touch screens); click one.</p>
+  <p id="log"></p>
+  <div id="charts"></div>
+</body>
+</html>

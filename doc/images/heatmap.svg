@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="svgc-root svgc-heatmap" width="480" height="258" viewBox="0 0 480 258" role="group" aria-label="Orders by day and hour"><title>Orders by day and hour</title><style>.svgc-root{font-family:system-ui, -apple-system, "Segoe UI", sans-serif;font-size:12px}.svgc-root text{font-variant-numeric:tabular-nums}.svgc-small{font-size:11px}.svgc-strong{font-weight:600}.svgc-root .svgc-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.svgc-root .svgc-area{stroke:none;fill-opacity:.16}.svgc-root .svgc-bar{stroke:none}.svgc-hit,.svgc-band{fill:transparent}.svgc-cross{stroke-width:1;opacity:0}.svgc-band:hover .svgc-cross{opacity:1}.svgc-mark:hover .svgc-bar,.svgc-mark:hover .svgc-slice{opacity:.82}.svgc-point:hover .svgc-dot{stroke-width:3}.svgc-grid{stroke-width:1}.svgc-axis{stroke-width:1}.svgc-root .svgc-grid,.svgc-root .svgc-axis,.svgc-root .svgc-line,.svgc-root .svgc-area,.svgc-root text{pointer-events:none}.svgc-root [data-hint]{cursor:default}.svgc-clickable [data-index]{cursor:pointer}.svgc-root{--svgc-c-surface:var(--svgc-surface,#fcfcfb);--svgc-c-text:var(--svgc-text,#0b0b0b);--svgc-c-text-secondary:var(--svgc-text-secondary,#52514e);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#e1e0d9);--svgc-c-axis:var(--svgc-axis,#c3c2b7);--svgc-c-negative:var(--svgc-negative,#e34948);--svgc-c-good:var(--svgc-good,#006300);--svgc-c-bad:var(--svgc-bad,#d03b3b);--svgc-c-series-1:var(--svgc-series-1,#2a78d6);--svgc-c-series-2:var(--svgc-series-2,#eb6834);--svgc-c-series-3:var(--svgc-series-3,#1baf7a);--svgc-c-series-4:var(--svgc-series-4,#eda100);--svgc-c-series-5:var(--svgc-series-5,#e87ba4);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#6250d6);--svgc-c-series-8:var(--svgc-series-8,#e34948);--svgc-c-seq-1:var(--svgc-seq-1,#cde2fb);--svgc-c-seq-2:var(--svgc-seq-2,#9ec5f4);--svgc-c-seq-3:var(--svgc-seq-3,#6da7ec);--svgc-c-seq-4:var(--svgc-seq-4,#3987e5);--svgc-c-seq-5:var(--svgc-seq-5,#256abf);--svgc-c-seq-6:var(--svgc-seq-6,#184f95);--svgc-c-seq-7:var(--svgc-seq-7,#0d366b)}.svgc-root .svgc-bg{fill:var(--svgc-c-surface)}.svgc-root .svgc-text{fill:var(--svgc-c-text)}.svgc-root .svgc-label{fill:var(--svgc-c-text-secondary)}.svgc-root .svgc-tick{fill:var(--svgc-c-muted)}.svgc-root .svgc-grid{stroke:var(--svgc-c-grid)}.svgc-root .svgc-axis{stroke:var(--svgc-c-axis)}.svgc-root .svgc-cross{stroke:var(--svgc-c-muted)}.svgc-root .svgc-track{fill:var(--svgc-c-grid)}.svgc-root .svgc-neg{fill:var(--svgc-c-negative)}.svgc-root .svgc-good{fill:var(--svgc-c-good)}.svgc-root .svgc-bad{fill:var(--svgc-c-bad)}.svgc-root .svgc-empty{fill:var(--svgc-c-grid)}.svgc-root .svgc-dot{stroke:var(--svgc-c-surface)}.svgc-root .svgc-slice{stroke:var(--svgc-c-surface)}.svgc-root .svgc-band:hover{fill:var(--svgc-c-grid);fill-opacity:.5}.svgc-root .svgc-s1:not(.svgc-line){fill:var(--svgc-c-series-1)}.svgc-root .svgc-s1.svgc-line{stroke:var(--svgc-c-series-1)}.svgc-root .svgc-s2:not(.svgc-line){fill:var(--svgc-c-series-2)}.svgc-root .svgc-s2.svgc-line{stroke:var(--svgc-c-series-2)}.svgc-root .svgc-s3:not(.svgc-line){fill:var(--svgc-c-series-3)}.svgc-root .svgc-s3.svgc-line{stroke:var(--svgc-c-series-3)}.svgc-root .svgc-s4:not(.svgc-line){fill:var(--svgc-c-series-4)}.svgc-root .svgc-s4.svgc-line{stroke:var(--svgc-c-series-4)}.svgc-root .svgc-s5:not(.svgc-line){fill:var(--svgc-c-series-5)}.svgc-root .svgc-s5.svgc-line{stroke:var(--svgc-c-series-5)}.svgc-root .svgc-s6:not(.svgc-line){fill:var(--svgc-c-series-6)}.svgc-root .svgc-s6.svgc-line{stroke:var(--svgc-c-series-6)}.svgc-root .svgc-s7:not(.svgc-line){fill:var(--svgc-c-series-7)}.svgc-root .svgc-s7.svgc-line{stroke:var(--svgc-c-series-7)}.svgc-root .svgc-s8:not(.svgc-line){fill:var(--svgc-c-series-8)}.svgc-root .svgc-s8.svgc-line{stroke:var(--svgc-c-series-8)}.svgc-root .svgc-q1{fill:var(--svgc-c-seq-1)}.svgc-root .svgc-q2{fill:var(--svgc-c-seq-2)}.svgc-root .svgc-q3{fill:var(--svgc-c-seq-3)}.svgc-root .svgc-q4{fill:var(--svgc-c-seq-4)}.svgc-root .svgc-q5{fill:var(--svgc-c-seq-5)}.svgc-root .svgc-q6{fill:var(--svgc-c-seq-6)}.svgc-root .svgc-q7{fill:var(--svgc-c-seq-7)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .svgc-root{--svgc-c-surface:var(--svgc-surface,#1a1a19);--svgc-c-text:var(--svgc-text,#f0efec);--svgc-c-text-secondary:var(--svgc-text-secondary,#c3c2b7);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#2c2c2a);--svgc-c-axis:var(--svgc-axis,#383835);--svgc-c-negative:var(--svgc-negative,#e66767);--svgc-c-good:var(--svgc-good,#0ca30c);--svgc-c-bad:var(--svgc-bad,#e66767);--svgc-c-series-1:var(--svgc-series-1,#3987e5);--svgc-c-series-2:var(--svgc-series-2,#d95926);--svgc-c-series-3:var(--svgc-series-3,#199e70);--svgc-c-series-4:var(--svgc-series-4,#c98500);--svgc-c-series-5:var(--svgc-series-5,#d55181);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#9085e9);--svgc-c-series-8:var(--svgc-series-8,#e66767);--svgc-c-seq-1:var(--svgc-seq-1,#104281);--svgc-c-seq-2:var(--svgc-seq-2,#184f95);--svgc-c-seq-3:var(--svgc-seq-3,#256abf);--svgc-c-seq-4:var(--svgc-seq-4,#2a78d6);--svgc-c-seq-5:var(--svgc-seq-5,#5598e7);--svgc-c-seq-6:var(--svgc-seq-6,#86b6ef);--svgc-c-seq-7:var(--svgc-seq-7,#b7d3f6)}}:root[data-theme="dark"] .svgc-root{--svgc-c-surface:var(--svgc-surface,#1a1a19);--svgc-c-text:var(--svgc-text,#f0efec);--svgc-c-text-secondary:var(--svgc-text-secondary,#c3c2b7);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#2c2c2a);--svgc-c-axis:var(--svgc-axis,#383835);--svgc-c-negative:var(--svgc-negative,#e66767);--svgc-c-good:var(--svgc-good,#0ca30c);--svgc-c-bad:var(--svgc-bad,#e66767);--svgc-c-series-1:var(--svgc-series-1,#3987e5);--svgc-c-series-2:var(--svgc-series-2,#d95926);--svgc-c-series-3:var(--svgc-series-3,#199e70);--svgc-c-series-4:var(--svgc-series-4,#c98500);--svgc-c-series-5:var(--svgc-series-5,#d55181);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#9085e9);--svgc-c-series-8:var(--svgc-series-8,#e66767);--svgc-c-seq-1:var(--svgc-seq-1,#104281);--svgc-c-seq-2:var(--svgc-seq-2,#184f95);--svgc-c-seq-3:var(--svgc-seq-3,#256abf);--svgc-c-seq-4:var(--svgc-seq-4,#2a78d6);--svgc-c-seq-5:var(--svgc-seq-5,#5598e7);--svgc-c-seq-6:var(--svgc-seq-6,#86b6ef);--svgc-c-seq-7:var(--svgc-seq-7,#b7d3f6)}</style><text class="svgc-text svgc-strong" x="8" y="20" fill="#0b0b0b">Orders by day and hour</text><text class="svgc-tick svgc-small" x="56.61" y="41" text-anchor="middle" fill="#898781">10h</text><text class="svgc-tick svgc-small" x="92.73" y="41" text-anchor="middle" fill="#898781">11h</text><text class="svgc-tick svgc-small" x="128.85" y="41" text-anchor="middle" fill="#898781">12h</text><text class="svgc-tick svgc-small" x="164.97" y="41" text-anchor="middle" fill="#898781">13h</text><text class="svgc-tick svgc-small" x="201.09" y="41" text-anchor="middle" fill="#898781">14h</text><text class="svgc-tick svgc-small" x="237.21" y="41" text-anchor="middle" fill="#898781">15h</text><text class="svgc-tick svgc-small" x="273.34" y="41" text-anchor="middle" fill="#898781">16h</text><text class="svgc-tick svgc-small" x="309.46" y="41" text-anchor="middle" fill="#898781">17h</text><text class="svgc-tick svgc-small" x="345.58" y="41" text-anchor="middle" fill="#898781">18h</text><text class="svgc-tick svgc-small" x="381.7" y="41" text-anchor="middle" fill="#898781">19h</text><text class="svgc-tick svgc-small" x="417.82" y="41" text-anchor="middle" fill="#898781">20h</text><text class="svgc-tick svgc-small" x="453.94" y="41" text-anchor="middle" fill="#898781">21h</text><g class="svgc-marks"><text class="svgc-label svgc-small" x="8" y="64.85" fill="#52514e">Mon</text><g class="svgc-cell" data-index="0" data-series="0" data-hint="Mon · 10h
+10" role="img" aria-label="Mon · 10h, 10"><title>Mon · 10h
+10</title><rect class="svgc-q1" x="39.55" y="50" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="1" data-series="0" data-hint="Mon · 11h
+12" role="img" aria-label="Mon · 11h, 12"><title>Mon · 11h
+12</title><rect class="svgc-q1" x="75.67" y="50" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="2" data-series="0" data-hint="Mon · 12h
+15" role="img" aria-label="Mon · 12h, 15"><title>Mon · 12h
+15</title><rect class="svgc-q1" x="111.79" y="50" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="3" data-series="0" data-hint="Mon · 13h
+23" role="img" aria-label="Mon · 13h, 23"><title>Mon · 13h
+23</title><rect class="svgc-q2" x="147.91" y="50" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="4" data-series="0" data-hint="Mon · 14h
+34" role="img" aria-label="Mon · 14h, 34"><title>Mon · 14h
+34</title><rect class="svgc-q3" x="184.03" y="50" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="5" data-series="0" data-hint="Mon · 15h
+45" role="img" aria-label="Mon · 15h, 45"><title>Mon · 15h
+45</title><rect class="svgc-q4" x="220.15" y="50" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="6" data-series="0" data-hint="Mon · 16h
+50" role="img" aria-label="Mon · 16h, 50"><title>Mon · 16h
+50</title><rect class="svgc-q5" x="256.27" y="50" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="7" data-series="0" data-hint="Mon · 17h
+45" role="img" aria-label="Mon · 17h, 45"><title>Mon · 17h
+45</title><rect class="svgc-q4" x="292.4" y="50" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="8" data-series="0" data-hint="Mon · 18h
+34" role="img" aria-label="Mon · 18h, 34"><title>Mon · 18h
+34</title><rect class="svgc-q3" x="328.52" y="50" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="9" data-series="0" data-hint="Mon · 19h
+23" role="img" aria-label="Mon · 19h, 23"><title>Mon · 19h
+23</title><rect class="svgc-q2" x="364.64" y="50" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="10" data-series="0" data-hint="Mon · 20h
+15" role="img" aria-label="Mon · 20h, 15"><title>Mon · 20h
+15</title><rect class="svgc-q1" x="400.76" y="50" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="11" data-series="0" data-hint="Mon · 21h
+12" role="img" aria-label="Mon · 21h, 12"><title>Mon · 21h
+12</title><rect class="svgc-q1" x="436.88" y="50" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><text class="svgc-label svgc-small" x="8" y="88.85" fill="#52514e">Tue</text><g class="svgc-cell" data-index="0" data-series="1" data-hint="Tue · 10h
+10" role="img" aria-label="Tue · 10h, 10"><title>Tue · 10h
+10</title><rect class="svgc-q1" x="39.55" y="74" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="1" data-series="1" data-hint="Tue · 11h
+12" role="img" aria-label="Tue · 11h, 12"><title>Tue · 11h
+12</title><rect class="svgc-q1" x="75.67" y="74" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="2" data-series="1" data-hint="Tue · 12h
+15" role="img" aria-label="Tue · 12h, 15"><title>Tue · 12h
+15</title><rect class="svgc-q1" x="111.79" y="74" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="3" data-series="1" data-hint="Tue · 13h
+23" role="img" aria-label="Tue · 13h, 23"><title>Tue · 13h
+23</title><rect class="svgc-q2" x="147.91" y="74" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="4" data-series="1" data-hint="Tue · 14h
+34" role="img" aria-label="Tue · 14h, 34"><title>Tue · 14h
+34</title><rect class="svgc-q3" x="184.03" y="74" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="5" data-series="1" data-hint="Tue · 15h
+45" role="img" aria-label="Tue · 15h, 45"><title>Tue · 15h
+45</title><rect class="svgc-q4" x="220.15" y="74" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="6" data-series="1" data-hint="Tue · 16h
+50" role="img" aria-label="Tue · 16h, 50"><title>Tue · 16h
+50</title><rect class="svgc-q5" x="256.27" y="74" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="7" data-series="1" data-hint="Tue · 17h
+45" role="img" aria-label="Tue · 17h, 45"><title>Tue · 17h
+45</title><rect class="svgc-q4" x="292.4" y="74" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="8" data-series="1" data-hint="Tue · 18h
+34" role="img" aria-label="Tue · 18h, 34"><title>Tue · 18h
+34</title><rect class="svgc-q3" x="328.52" y="74" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="9" data-series="1" data-hint="Tue · 19h
+23" role="img" aria-label="Tue · 19h, 23"><title>Tue · 19h
+23</title><rect class="svgc-q2" x="364.64" y="74" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="10" data-series="1" data-hint="Tue · 20h
+15" role="img" aria-label="Tue · 20h, 15"><title>Tue · 20h
+15</title><rect class="svgc-q1" x="400.76" y="74" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="11" data-series="1" data-hint="Tue · 21h
+12" role="img" aria-label="Tue · 21h, 12"><title>Tue · 21h
+12</title><rect class="svgc-q1" x="436.88" y="74" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><text class="svgc-label svgc-small" x="8" y="112.85" fill="#52514e">Wed</text><g class="svgc-cell" data-index="0" data-series="2" data-hint="Wed · 10h
+10" role="img" aria-label="Wed · 10h, 10"><title>Wed · 10h
+10</title><rect class="svgc-q1" x="39.55" y="98" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="1" data-series="2" data-hint="Wed · 11h
+12" role="img" aria-label="Wed · 11h, 12"><title>Wed · 11h
+12</title><rect class="svgc-q1" x="75.67" y="98" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="2" data-series="2" data-hint="Wed · 12h
+15" role="img" aria-label="Wed · 12h, 15"><title>Wed · 12h
+15</title><rect class="svgc-q1" x="111.79" y="98" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="3" data-series="2" data-hint="Wed · 13h
+23" role="img" aria-label="Wed · 13h, 23"><title>Wed · 13h
+23</title><rect class="svgc-q2" x="147.91" y="98" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="4" data-series="2" data-hint="Wed · 14h
+34" role="img" aria-label="Wed · 14h, 34"><title>Wed · 14h
+34</title><rect class="svgc-q3" x="184.03" y="98" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="5" data-series="2" data-hint="Wed · 15h
+no value" role="img" aria-label="Wed · 15h, no value"><title>Wed · 15h
+no value</title><rect class="svgc-empty" x="220.15" y="98" width="34.12" height="22" rx="2" fill="#e1e0d9" fill-opacity="0.4"/></g><g class="svgc-cell" data-index="6" data-series="2" data-hint="Wed · 16h
+50" role="img" aria-label="Wed · 16h, 50"><title>Wed · 16h
+50</title><rect class="svgc-q5" x="256.27" y="98" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="7" data-series="2" data-hint="Wed · 17h
+45" role="img" aria-label="Wed · 17h, 45"><title>Wed · 17h
+45</title><rect class="svgc-q4" x="292.4" y="98" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="8" data-series="2" data-hint="Wed · 18h
+34" role="img" aria-label="Wed · 18h, 34"><title>Wed · 18h
+34</title><rect class="svgc-q3" x="328.52" y="98" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="9" data-series="2" data-hint="Wed · 19h
+23" role="img" aria-label="Wed · 19h, 23"><title>Wed · 19h
+23</title><rect class="svgc-q2" x="364.64" y="98" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="10" data-series="2" data-hint="Wed · 20h
+15" role="img" aria-label="Wed · 20h, 15"><title>Wed · 20h
+15</title><rect class="svgc-q1" x="400.76" y="98" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="11" data-series="2" data-hint="Wed · 21h
+12" role="img" aria-label="Wed · 21h, 12"><title>Wed · 21h
+12</title><rect class="svgc-q1" x="436.88" y="98" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><text class="svgc-label svgc-small" x="8" y="136.85" fill="#52514e">Thu</text><g class="svgc-cell" data-index="0" data-series="3" data-hint="Thu · 10h
+10" role="img" aria-label="Thu · 10h, 10"><title>Thu · 10h
+10</title><rect class="svgc-q1" x="39.55" y="122" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="1" data-series="3" data-hint="Thu · 11h
+12" role="img" aria-label="Thu · 11h, 12"><title>Thu · 11h
+12</title><rect class="svgc-q1" x="75.67" y="122" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="2" data-series="3" data-hint="Thu · 12h
+15" role="img" aria-label="Thu · 12h, 15"><title>Thu · 12h
+15</title><rect class="svgc-q1" x="111.79" y="122" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="3" data-series="3" data-hint="Thu · 13h
+23" role="img" aria-label="Thu · 13h, 23"><title>Thu · 13h
+23</title><rect class="svgc-q2" x="147.91" y="122" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="4" data-series="3" data-hint="Thu · 14h
+34" role="img" aria-label="Thu · 14h, 34"><title>Thu · 14h
+34</title><rect class="svgc-q3" x="184.03" y="122" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="5" data-series="3" data-hint="Thu · 15h
+45" role="img" aria-label="Thu · 15h, 45"><title>Thu · 15h
+45</title><rect class="svgc-q4" x="220.15" y="122" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="6" data-series="3" data-hint="Thu · 16h
+50" role="img" aria-label="Thu · 16h, 50"><title>Thu · 16h
+50</title><rect class="svgc-q5" x="256.27" y="122" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="7" data-series="3" data-hint="Thu · 17h
+45" role="img" aria-label="Thu · 17h, 45"><title>Thu · 17h
+45</title><rect class="svgc-q4" x="292.4" y="122" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="8" data-series="3" data-hint="Thu · 18h
+34" role="img" aria-label="Thu · 18h, 34"><title>Thu · 18h
+34</title><rect class="svgc-q3" x="328.52" y="122" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="9" data-series="3" data-hint="Thu · 19h
+23" role="img" aria-label="Thu · 19h, 23"><title>Thu · 19h
+23</title><rect class="svgc-q2" x="364.64" y="122" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="10" data-series="3" data-hint="Thu · 20h
+15" role="img" aria-label="Thu · 20h, 15"><title>Thu · 20h
+15</title><rect class="svgc-q1" x="400.76" y="122" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="11" data-series="3" data-hint="Thu · 21h
+12" role="img" aria-label="Thu · 21h, 12"><title>Thu · 21h
+12</title><rect class="svgc-q1" x="436.88" y="122" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><text class="svgc-label svgc-small" x="8" y="160.85" fill="#52514e">Fri</text><g class="svgc-cell" data-index="0" data-series="4" data-hint="Fri · 10h
+10" role="img" aria-label="Fri · 10h, 10"><title>Fri · 10h
+10</title><rect class="svgc-q1" x="39.55" y="146" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="1" data-series="4" data-hint="Fri · 11h
+12" role="img" aria-label="Fri · 11h, 12"><title>Fri · 11h
+12</title><rect class="svgc-q1" x="75.67" y="146" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="2" data-series="4" data-hint="Fri · 12h
+15" role="img" aria-label="Fri · 12h, 15"><title>Fri · 12h
+15</title><rect class="svgc-q1" x="111.79" y="146" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="3" data-series="4" data-hint="Fri · 13h
+23" role="img" aria-label="Fri · 13h, 23"><title>Fri · 13h
+23</title><rect class="svgc-q2" x="147.91" y="146" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="4" data-series="4" data-hint="Fri · 14h
+34" role="img" aria-label="Fri · 14h, 34"><title>Fri · 14h
+34</title><rect class="svgc-q3" x="184.03" y="146" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="5" data-series="4" data-hint="Fri · 15h
+45" role="img" aria-label="Fri · 15h, 45"><title>Fri · 15h
+45</title><rect class="svgc-q4" x="220.15" y="146" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="6" data-series="4" data-hint="Fri · 16h
+50" role="img" aria-label="Fri · 16h, 50"><title>Fri · 16h
+50</title><rect class="svgc-q5" x="256.27" y="146" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="7" data-series="4" data-hint="Fri · 17h
+45" role="img" aria-label="Fri · 17h, 45"><title>Fri · 17h
+45</title><rect class="svgc-q4" x="292.4" y="146" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="8" data-series="4" data-hint="Fri · 18h
+34" role="img" aria-label="Fri · 18h, 34"><title>Fri · 18h
+34</title><rect class="svgc-q3" x="328.52" y="146" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="9" data-series="4" data-hint="Fri · 19h
+23" role="img" aria-label="Fri · 19h, 23"><title>Fri · 19h
+23</title><rect class="svgc-q2" x="364.64" y="146" width="34.12" height="22" rx="2" fill="#9ec5f4"/></g><g class="svgc-cell" data-index="10" data-series="4" data-hint="Fri · 20h
+15" role="img" aria-label="Fri · 20h, 15"><title>Fri · 20h
+15</title><rect class="svgc-q1" x="400.76" y="146" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><g class="svgc-cell" data-index="11" data-series="4" data-hint="Fri · 21h
+12" role="img" aria-label="Fri · 21h, 12"><title>Fri · 21h
+12</title><rect class="svgc-q1" x="436.88" y="146" width="34.12" height="22" rx="2" fill="#cde2fb"/></g><text class="svgc-label svgc-small" x="8" y="184.85" fill="#52514e">Sat</text><g class="svgc-cell" data-index="0" data-series="5" data-hint="Sat · 10h
+35" role="img" aria-label="Sat · 10h, 35"><title>Sat · 10h
+35</title><rect class="svgc-q3" x="39.55" y="170" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="1" data-series="5" data-hint="Sat · 11h
+37" role="img" aria-label="Sat · 11h, 37"><title>Sat · 11h
+37</title><rect class="svgc-q3" x="75.67" y="170" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="2" data-series="5" data-hint="Sat · 12h
+40" role="img" aria-label="Sat · 12h, 40"><title>Sat · 12h
+40</title><rect class="svgc-q4" x="111.79" y="170" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="3" data-series="5" data-hint="Sat · 13h
+48" role="img" aria-label="Sat · 13h, 48"><title>Sat · 13h
+48</title><rect class="svgc-q5" x="147.91" y="170" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="4" data-series="5" data-hint="Sat · 14h
+59" role="img" aria-label="Sat · 14h, 59"><title>Sat · 14h
+59</title><rect class="svgc-q6" x="184.03" y="170" width="34.12" height="22" rx="2" fill="#184f95"/></g><g class="svgc-cell" data-index="5" data-series="5" data-hint="Sat · 15h
+70" role="img" aria-label="Sat · 15h, 70"><title>Sat · 15h
+70</title><rect class="svgc-q7" x="220.15" y="170" width="34.12" height="22" rx="2" fill="#0d366b"/></g><g class="svgc-cell" data-index="6" data-series="5" data-hint="Sat · 16h
+75" role="img" aria-label="Sat · 16h, 75"><title>Sat · 16h
+75</title><rect class="svgc-q7" x="256.27" y="170" width="34.12" height="22" rx="2" fill="#0d366b"/></g><g class="svgc-cell" data-index="7" data-series="5" data-hint="Sat · 17h
+70" role="img" aria-label="Sat · 17h, 70"><title>Sat · 17h
+70</title><rect class="svgc-q7" x="292.4" y="170" width="34.12" height="22" rx="2" fill="#0d366b"/></g><g class="svgc-cell" data-index="8" data-series="5" data-hint="Sat · 18h
+59" role="img" aria-label="Sat · 18h, 59"><title>Sat · 18h
+59</title><rect class="svgc-q6" x="328.52" y="170" width="34.12" height="22" rx="2" fill="#184f95"/></g><g class="svgc-cell" data-index="9" data-series="5" data-hint="Sat · 19h
+48" role="img" aria-label="Sat · 19h, 48"><title>Sat · 19h
+48</title><rect class="svgc-q5" x="364.64" y="170" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="10" data-series="5" data-hint="Sat · 20h
+40" role="img" aria-label="Sat · 20h, 40"><title>Sat · 20h
+40</title><rect class="svgc-q4" x="400.76" y="170" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="11" data-series="5" data-hint="Sat · 21h
+37" role="img" aria-label="Sat · 21h, 37"><title>Sat · 21h
+37</title><rect class="svgc-q3" x="436.88" y="170" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><text class="svgc-label svgc-small" x="8" y="208.85" fill="#52514e">Sun</text><g class="svgc-cell" data-index="0" data-series="6" data-hint="Sun · 10h
+35" role="img" aria-label="Sun · 10h, 35"><title>Sun · 10h
+35</title><rect class="svgc-q3" x="39.55" y="194" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="1" data-series="6" data-hint="Sun · 11h
+37" role="img" aria-label="Sun · 11h, 37"><title>Sun · 11h
+37</title><rect class="svgc-q3" x="75.67" y="194" width="34.12" height="22" rx="2" fill="#6da7ec"/></g><g class="svgc-cell" data-index="2" data-series="6" data-hint="Sun · 12h
+40" role="img" aria-label="Sun · 12h, 40"><title>Sun · 12h
+40</title><rect class="svgc-q4" x="111.79" y="194" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="3" data-series="6" data-hint="Sun · 13h
+48" role="img" aria-label="Sun · 13h, 48"><title>Sun · 13h
+48</title><rect class="svgc-q5" x="147.91" y="194" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="4" data-series="6" data-hint="Sun · 14h
+59" role="img" aria-label="Sun · 14h, 59"><title>Sun · 14h
+59</title><rect class="svgc-q6" x="184.03" y="194" width="34.12" height="22" rx="2" fill="#184f95"/></g><g class="svgc-cell" data-index="5" data-series="6" data-hint="Sun · 15h
+70" role="img" aria-label="Sun · 15h, 70"><title>Sun · 15h
+70</title><rect class="svgc-q7" x="220.15" y="194" width="34.12" height="22" rx="2" fill="#0d366b"/></g><g class="svgc-cell" data-index="6" data-series="6" data-hint="Sun · 16h
+75" role="img" aria-label="Sun · 16h, 75"><title>Sun · 16h
+75</title><rect class="svgc-q7" x="256.27" y="194" width="34.12" height="22" rx="2" fill="#0d366b"/></g><g class="svgc-cell" data-index="7" data-series="6" data-hint="Sun · 17h
+70" role="img" aria-label="Sun · 17h, 70"><title>Sun · 17h
+70</title><rect class="svgc-q7" x="292.4" y="194" width="34.12" height="22" rx="2" fill="#0d366b"/></g><g class="svgc-cell" data-index="8" data-series="6" data-hint="Sun · 18h
+59" role="img" aria-label="Sun · 18h, 59"><title>Sun · 18h
+59</title><rect class="svgc-q6" x="328.52" y="194" width="34.12" height="22" rx="2" fill="#184f95"/></g><g class="svgc-cell" data-index="9" data-series="6" data-hint="Sun · 19h
+48" role="img" aria-label="Sun · 19h, 48"><title>Sun · 19h
+48</title><rect class="svgc-q5" x="364.64" y="194" width="34.12" height="22" rx="2" fill="#256abf"/></g><g class="svgc-cell" data-index="10" data-series="6" data-hint="Sun · 20h
+40" role="img" aria-label="Sun · 20h, 40"><title>Sun · 20h
+40</title><rect class="svgc-q4" x="400.76" y="194" width="34.12" height="22" rx="2" fill="#3987e5"/></g><g class="svgc-cell" data-index="11" data-series="6" data-hint="Sun · 21h
+37" role="img" aria-label="Sun · 21h, 37"><title>Sun · 21h
+37</title><rect class="svgc-q3" x="436.88" y="194" width="34.12" height="22" rx="2" fill="#6da7ec"/></g></g><g class="svgc-legend"><rect class="svgc-q1" x="38.55" y="225" width="27" height="8" fill="#cde2fb"/><rect class="svgc-q2" x="66.55" y="225" width="27" height="8" fill="#9ec5f4"/><rect class="svgc-q3" x="94.55" y="225" width="27" height="8" fill="#6da7ec"/><rect class="svgc-q4" x="122.55" y="225" width="27" height="8" fill="#3987e5"/><rect class="svgc-q5" x="150.55" y="225" width="27" height="8" fill="#256abf"/><rect class="svgc-q6" x="178.55" y="225" width="27" height="8" fill="#184f95"/><rect class="svgc-q7" x="206.55" y="225" width="27" height="8" fill="#0d366b"/><text class="svgc-tick svgc-small" x="38.55" y="246" fill="#898781">10</text><text class="svgc-tick svgc-small" x="233.55" y="246" text-anchor="end" fill="#898781">75</text></g></svg>

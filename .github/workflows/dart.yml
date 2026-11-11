@@ -1,0 +1,102 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dart-lang/setup-dart@v1
+      - name: Dart version
+        run: |
+          dart --version
+          uname -a
+      - name: Install dependencies
+        run: dart pub get
+      - name: dart format
+        run: dart format -o none --set-exit-if-changed .
+      - name: dart analyze
+        run: dart analyze --fatal-infos --fatal-warnings .
+      - name: dependency_validator
+        run: dart run dependency_validator
+      - name: dart doc
+        run: dart doc --dry-run
+      - name: dart pub publish --dry-run
+        run: dart pub publish --dry-run
+
+  test_vm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dart-lang/setup-dart@v1
+      - name: Dart version
+        run: |
+          dart --version
+          uname -a
+      - name: Install dependencies
+        run: dart pub get
+      - name: Run tests (VM)
+        run: dart test --platform vm --coverage=./coverage
+      - name: Generate coverage report
+        run: |
+          dart pub global activate coverage
+          dart pub global run coverage:format_coverage --packages=.dart_tool/package_config.json --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v7
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          directory: ./coverage/
+          flags: unittests
+          env_vars: OS,DART
+          fail_ci_if_error: false
+          verbose: true
+
+  # The charts render strings, and the same chart must render the same bytes
+  # on the VM and on the web: a server writing a report and a browser drawing
+  # the same chart must agree. Numbers are where they diverge (a double
+  # interpolated is `12.0` on the VM and `12` under dart2js; `1.0 is int` is
+  # true only on the web), so the suite runs compiled to JavaScript in a real
+  # browser, where test/parity_test.dart checks every gallery chart against
+  # the fingerprints written on the VM.
+  #
+  # It also runs test/web_test.dart: the hint tooltip and clickable marks
+  # against real DOM events, fractional pointer coordinates included (read as
+  # `clientX`, typed `int`, those once threw and no hint showed).
+  test_browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dart-lang/setup-dart@v1
+      - name: Dart version
+        run: |
+          dart --version
+          uname -a
+      - name: Install dependencies
+        run: dart pub get
+      - name: Run tests (Chrome, compiled to JavaScript)
+        run: dart test --platform chrome
+
+  # Proves the published examples — not just the library — compile for the
+  # web, which is what a user actually does first.
+  compile_js:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dart-lang/setup-dart@v1
+      - name: Install dependencies
+        run: dart pub get
+      # Real output paths, not /dev/null: `dart compile js` also writes
+      # sidecar `.deps` and `.map` files beside its target.
+      - name: Compile the example to JavaScript
+        run: dart compile js -o "${RUNNER_TEMP}/example.js" example/svg_charts_example.dart
+      - name: Compile the web example to JavaScript
+        run: dart compile js -o "${RUNNER_TEMP}/web.js" example/web/main.dart

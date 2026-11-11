@@ -1,0 +1,281 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="svgc-root svgc-scatter-chart" width="480" height="300" viewBox="0 0 480 300" role="group" aria-label="Price vs. orders"><title>Price vs. orders</title><style>.svgc-root{font-family:system-ui, -apple-system, "Segoe UI", sans-serif;font-size:12px}.svgc-root text{font-variant-numeric:tabular-nums}.svgc-small{font-size:11px}.svgc-strong{font-weight:600}.svgc-root .svgc-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.svgc-root .svgc-area{stroke:none;fill-opacity:.16}.svgc-root .svgc-bar{stroke:none}.svgc-hit,.svgc-band{fill:transparent}.svgc-cross{stroke-width:1;opacity:0}.svgc-band:hover .svgc-cross{opacity:1}.svgc-mark:hover .svgc-bar,.svgc-mark:hover .svgc-slice{opacity:.82}.svgc-point:hover .svgc-dot{stroke-width:3}.svgc-grid{stroke-width:1}.svgc-axis{stroke-width:1}.svgc-root .svgc-grid,.svgc-root .svgc-axis,.svgc-root .svgc-line,.svgc-root .svgc-area,.svgc-root text{pointer-events:none}.svgc-root [data-hint]{cursor:default}.svgc-clickable [data-index]{cursor:pointer}.svgc-root{--svgc-c-surface:var(--svgc-surface,#fcfcfb);--svgc-c-text:var(--svgc-text,#0b0b0b);--svgc-c-text-secondary:var(--svgc-text-secondary,#52514e);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#e1e0d9);--svgc-c-axis:var(--svgc-axis,#c3c2b7);--svgc-c-negative:var(--svgc-negative,#e34948);--svgc-c-good:var(--svgc-good,#006300);--svgc-c-bad:var(--svgc-bad,#d03b3b);--svgc-c-series-1:var(--svgc-series-1,#2a78d6);--svgc-c-series-2:var(--svgc-series-2,#eb6834);--svgc-c-series-3:var(--svgc-series-3,#1baf7a);--svgc-c-series-4:var(--svgc-series-4,#eda100);--svgc-c-series-5:var(--svgc-series-5,#e87ba4);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#6250d6);--svgc-c-series-8:var(--svgc-series-8,#e34948);--svgc-c-seq-1:var(--svgc-seq-1,#cde2fb);--svgc-c-seq-2:var(--svgc-seq-2,#9ec5f4);--svgc-c-seq-3:var(--svgc-seq-3,#6da7ec);--svgc-c-seq-4:var(--svgc-seq-4,#3987e5);--svgc-c-seq-5:var(--svgc-seq-5,#256abf);--svgc-c-seq-6:var(--svgc-seq-6,#184f95);--svgc-c-seq-7:var(--svgc-seq-7,#0d366b)}.svgc-root .svgc-bg{fill:var(--svgc-c-surface)}.svgc-root .svgc-text{fill:var(--svgc-c-text)}.svgc-root .svgc-label{fill:var(--svgc-c-text-secondary)}.svgc-root .svgc-tick{fill:var(--svgc-c-muted)}.svgc-root .svgc-grid{stroke:var(--svgc-c-grid)}.svgc-root .svgc-axis{stroke:var(--svgc-c-axis)}.svgc-root .svgc-cross{stroke:var(--svgc-c-muted)}.svgc-root .svgc-track{fill:var(--svgc-c-grid)}.svgc-root .svgc-neg{fill:var(--svgc-c-negative)}.svgc-root .svgc-good{fill:var(--svgc-c-good)}.svgc-root .svgc-bad{fill:var(--svgc-c-bad)}.svgc-root .svgc-empty{fill:var(--svgc-c-grid)}.svgc-root .svgc-dot{stroke:var(--svgc-c-surface)}.svgc-root .svgc-slice{stroke:var(--svgc-c-surface)}.svgc-root .svgc-band:hover{fill:var(--svgc-c-grid);fill-opacity:.5}.svgc-root .svgc-s1:not(.svgc-line){fill:var(--svgc-c-series-1)}.svgc-root .svgc-s1.svgc-line{stroke:var(--svgc-c-series-1)}.svgc-root .svgc-s2:not(.svgc-line){fill:var(--svgc-c-series-2)}.svgc-root .svgc-s2.svgc-line{stroke:var(--svgc-c-series-2)}.svgc-root .svgc-s3:not(.svgc-line){fill:var(--svgc-c-series-3)}.svgc-root .svgc-s3.svgc-line{stroke:var(--svgc-c-series-3)}.svgc-root .svgc-s4:not(.svgc-line){fill:var(--svgc-c-series-4)}.svgc-root .svgc-s4.svgc-line{stroke:var(--svgc-c-series-4)}.svgc-root .svgc-s5:not(.svgc-line){fill:var(--svgc-c-series-5)}.svgc-root .svgc-s5.svgc-line{stroke:var(--svgc-c-series-5)}.svgc-root .svgc-s6:not(.svgc-line){fill:var(--svgc-c-series-6)}.svgc-root .svgc-s6.svgc-line{stroke:var(--svgc-c-series-6)}.svgc-root .svgc-s7:not(.svgc-line){fill:var(--svgc-c-series-7)}.svgc-root .svgc-s7.svgc-line{stroke:var(--svgc-c-series-7)}.svgc-root .svgc-s8:not(.svgc-line){fill:var(--svgc-c-series-8)}.svgc-root .svgc-s8.svgc-line{stroke:var(--svgc-c-series-8)}.svgc-root .svgc-q1{fill:var(--svgc-c-seq-1)}.svgc-root .svgc-q2{fill:var(--svgc-c-seq-2)}.svgc-root .svgc-q3{fill:var(--svgc-c-seq-3)}.svgc-root .svgc-q4{fill:var(--svgc-c-seq-4)}.svgc-root .svgc-q5{fill:var(--svgc-c-seq-5)}.svgc-root .svgc-q6{fill:var(--svgc-c-seq-6)}.svgc-root .svgc-q7{fill:var(--svgc-c-seq-7)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .svgc-root{--svgc-c-surface:var(--svgc-surface,#1a1a19);--svgc-c-text:var(--svgc-text,#f0efec);--svgc-c-text-secondary:var(--svgc-text-secondary,#c3c2b7);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#2c2c2a);--svgc-c-axis:var(--svgc-axis,#383835);--svgc-c-negative:var(--svgc-negative,#e66767);--svgc-c-good:var(--svgc-good,#0ca30c);--svgc-c-bad:var(--svgc-bad,#e66767);--svgc-c-series-1:var(--svgc-series-1,#3987e5);--svgc-c-series-2:var(--svgc-series-2,#d95926);--svgc-c-series-3:var(--svgc-series-3,#199e70);--svgc-c-series-4:var(--svgc-series-4,#c98500);--svgc-c-series-5:var(--svgc-series-5,#d55181);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#9085e9);--svgc-c-series-8:var(--svgc-series-8,#e66767);--svgc-c-seq-1:var(--svgc-seq-1,#104281);--svgc-c-seq-2:var(--svgc-seq-2,#184f95);--svgc-c-seq-3:var(--svgc-seq-3,#256abf);--svgc-c-seq-4:var(--svgc-seq-4,#2a78d6);--svgc-c-seq-5:var(--svgc-seq-5,#5598e7);--svgc-c-seq-6:var(--svgc-seq-6,#86b6ef);--svgc-c-seq-7:var(--svgc-seq-7,#b7d3f6)}}:root[data-theme="dark"] .svgc-root{--svgc-c-surface:var(--svgc-surface,#1a1a19);--svgc-c-text:var(--svgc-text,#f0efec);--svgc-c-text-secondary:var(--svgc-text-secondary,#c3c2b7);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#2c2c2a);--svgc-c-axis:var(--svgc-axis,#383835);--svgc-c-negative:var(--svgc-negative,#e66767);--svgc-c-good:var(--svgc-good,#0ca30c);--svgc-c-bad:var(--svgc-bad,#e66767);--svgc-c-series-1:var(--svgc-series-1,#3987e5);--svgc-c-series-2:var(--svgc-series-2,#d95926);--svgc-c-series-3:var(--svgc-series-3,#199e70);--svgc-c-series-4:var(--svgc-series-4,#c98500);--svgc-c-series-5:var(--svgc-series-5,#d55181);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#9085e9);--svgc-c-series-8:var(--svgc-series-8,#e66767);--svgc-c-seq-1:var(--svgc-seq-1,#104281);--svgc-c-seq-2:var(--svgc-seq-2,#184f95);--svgc-c-seq-3:var(--svgc-seq-3,#256abf);--svgc-c-seq-4:var(--svgc-seq-4,#2a78d6);--svgc-c-seq-5:var(--svgc-seq-5,#5598e7);--svgc-c-seq-6:var(--svgc-seq-6,#86b6ef);--svgc-c-seq-7:var(--svgc-seq-7,#b7d3f6)}</style><text class="svgc-text svgc-strong" x="8" y="20" fill="#0b0b0b">Price vs. orders</text><g class="svgc-legend"><rect class="svgc-s1 svgc-swatch" x="8" y="38.5" width="10" height="10" rx="2" fill="#2a78d6"/><text class="svgc-label svgc-small" x="24" y="47.35" fill="#52514e">menu A</text><rect class="svgc-s2 svgc-swatch" x="80.15" y="38.5" width="10" height="10" rx="2" fill="#eb6834"/><text class="svgc-label svgc-small" x="96.15" y="47.35" fill="#52514e">menu B</text></g><g class="svgc-ticks"><line class="svgc-axis" x1="33.8" y1="275" x2="472" y2="275" stroke="#c3c2b7"/><text class="svgc-tick svgc-small" x="27.8" y="278.85" text-anchor="end" fill="#898781">0</text><line class="svgc-grid" x1="33.8" y1="231.8" x2="472" y2="231.8" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="235.65" text-anchor="end" fill="#898781">20</text><line class="svgc-grid" x1="33.8" y1="188.6" x2="472" y2="188.6" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="192.45" text-anchor="end" fill="#898781">40</text><line class="svgc-grid" x1="33.8" y1="145.4" x2="472" y2="145.4" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="149.25" text-anchor="end" fill="#898781">60</text><line class="svgc-grid" x1="33.8" y1="102.2" x2="472" y2="102.2" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="106.05" text-anchor="end" fill="#898781">80</text><line class="svgc-grid" x1="33.8" y1="59" x2="472" y2="59" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="62.85" text-anchor="end" fill="#898781">100</text></g><g class="svgc-xticks"><line class="svgc-grid" x1="33.8" y1="59" x2="33.8" y2="275" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="33.8" y="290" text-anchor="middle" fill="#898781">0</text><line class="svgc-grid" x1="121.44" y1="59" x2="121.44" y2="275" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="121.44" y="290" text-anchor="middle" fill="#898781">20</text><line class="svgc-grid" x1="209.08" y1="59" x2="209.08" y2="275" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="209.08" y="290" text-anchor="middle" fill="#898781">40</text><line class="svgc-grid" x1="296.72" y1="59" x2="296.72" y2="275" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="296.72" y="290" text-anchor="middle" fill="#898781">60</text><line class="svgc-grid" x1="384.36" y1="59" x2="384.36" y2="275" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="384.36" y="290" text-anchor="middle" fill="#898781">80</text><line class="svgc-grid" x1="472" y1="59" x2="472" y2="275" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="470.1" y="290" text-anchor="middle" fill="#898781">100</text></g><g class="svgc-series svgc-s1"><g class="svgc-point" data-index="0" data-series="0" data-hint="menu A
+price: 5
+orders: 20" role="img" aria-label="menu A, price: 5, orders: 20"><title>menu A
+price: 5
+orders: 20</title><circle class="svgc-dot svgc-s1" cx="55.71" cy="231.8" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="55.71" cy="231.8" r="10" fill="transparent"/></g><g class="svgc-point" data-index="1" data-series="0" data-hint="menu A
+price: 7.2
+orders: 33.5" role="img" aria-label="menu A, price: 7.2, orders: 33.5"><title>menu A
+price: 7.2
+orders: 33.5</title><circle class="svgc-dot svgc-s1" cx="65.35" cy="202.64" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="65.35" cy="202.64" r="10" fill="transparent"/></g><g class="svgc-point" data-index="2" data-series="0" data-hint="menu A
+price: 9.4
+orders: 20.13" role="img" aria-label="menu A, price: 9.4, orders: 20.13"><title>menu A
+price: 9.4
+orders: 20.13</title><circle class="svgc-dot svgc-s1" cx="74.99" cy="231.51" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="74.99" cy="231.51" r="10" fill="transparent"/></g><g class="svgc-point" data-index="3" data-series="0" data-hint="menu A
+price: 11.6
+orders: 13.69" role="img" aria-label="menu A, price: 11.6, orders: 13.69"><title>menu A
+price: 11.6
+orders: 13.69</title><circle class="svgc-dot svgc-s1" cx="84.63" cy="245.43" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="84.63" cy="245.43" r="10" fill="transparent"/></g><g class="svgc-point" data-index="4" data-series="0" data-hint="menu A
+price: 13.8
+orders: 32.33" role="img" aria-label="menu A, price: 13.8, orders: 32.33"><title>menu A
+price: 13.8
+orders: 32.33</title><circle class="svgc-dot svgc-s1" cx="94.27" cy="205.17" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="94.27" cy="205.17" r="10" fill="transparent"/></g><g class="svgc-point" data-index="5" data-series="0" data-hint="menu A
+price: 16
+orders: 37.58" role="img" aria-label="menu A, price: 16, orders: 37.58"><title>menu A
+price: 16
+orders: 37.58</title><circle class="svgc-dot svgc-s1" cx="103.91" cy="193.82" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="103.91" cy="193.82" r="10" fill="transparent"/></g><g class="svgc-point" data-index="6" data-series="0" data-hint="menu A
+price: 18.2
+orders: 21.2" role="img" aria-label="menu A, price: 18.2, orders: 21.2"><title>menu A
+price: 18.2
+orders: 21.2</title><circle class="svgc-dot svgc-s1" cx="113.55" cy="229.2" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="113.55" cy="229.2" r="10" fill="transparent"/></g><g class="svgc-point" data-index="7" data-series="0" data-hint="menu A
+price: 20.4
+orders: 23.78" role="img" aria-label="menu A, price: 20.4, orders: 23.78"><title>menu A
+price: 20.4
+orders: 23.78</title><circle class="svgc-dot svgc-s1" cx="123.19" cy="223.63" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="123.19" cy="223.63" r="10" fill="transparent"/></g><g class="svgc-point" data-index="8" data-series="0" data-hint="menu A
+price: 22.6
+orders: 43.11" role="img" aria-label="menu A, price: 22.6, orders: 43.11"><title>menu A
+price: 22.6
+orders: 43.11</title><circle class="svgc-dot svgc-s1" cx="132.83" cy="181.88" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="132.83" cy="181.88" r="10" fill="transparent"/></g><g class="svgc-point" data-index="9" data-series="0" data-hint="menu A
+price: 24.8
+orders: 39.16" role="img" aria-label="menu A, price: 24.8, orders: 39.16"><title>menu A
+price: 24.8
+orders: 39.16</title><circle class="svgc-dot svgc-s1" cx="142.47" cy="190.41" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="142.47" cy="190.41" r="10" fill="transparent"/></g><g class="svgc-point" data-index="10" data-series="0" data-hint="menu A
+price: 27
+orders: 24.46" role="img" aria-label="menu A, price: 27, orders: 24.46"><title>menu A
+price: 27
+orders: 24.46</title><circle class="svgc-dot svgc-s1" cx="152.11" cy="222.16" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="152.11" cy="222.16" r="10" fill="transparent"/></g><g class="svgc-point" data-index="11" data-series="0" data-hint="menu A
+price: 29.2
+orders: 35.81" role="img" aria-label="menu A, price: 29.2, orders: 35.81"><title>menu A
+price: 29.2
+orders: 35.81</title><circle class="svgc-dot svgc-s1" cx="161.75" cy="197.65" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="161.75" cy="197.65" r="10" fill="transparent"/></g><g class="svgc-point" data-index="12" data-series="0" data-hint="menu A
+price: 31.4
+orders: 51.2" role="img" aria-label="menu A, price: 31.4, orders: 51.2"><title>menu A
+price: 31.4
+orders: 51.2</title><circle class="svgc-dot svgc-s1" cx="171.39" cy="164.41" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="171.39" cy="164.41" r="10" fill="transparent"/></g><g class="svgc-point" data-index="13" data-series="0" data-hint="menu A
+price: 33.6
+orders: 39.5" role="img" aria-label="menu A, price: 33.6, orders: 39.5"><title>menu A
+price: 33.6
+orders: 39.5</title><circle class="svgc-dot svgc-s1" cx="181.04" cy="189.69" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="181.04" cy="189.69" r="10" fill="transparent"/></g><g class="svgc-point" data-index="14" data-series="0" data-hint="menu A
+price: 35.8
+orders: 30.74" role="img" aria-label="menu A, price: 35.8, orders: 30.74"><title>menu A
+price: 35.8
+orders: 30.74</title><circle class="svgc-dot svgc-s1" cx="190.68" cy="208.61" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="190.68" cy="208.61" r="10" fill="transparent"/></g><g class="svgc-point" data-index="15" data-series="0" data-hint="menu A
+price: 38
+orders: 48.31" role="img" aria-label="menu A, price: 38, orders: 48.31"><title>menu A
+price: 38
+orders: 48.31</title><circle class="svgc-dot svgc-s1" cx="200.32" cy="170.65" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="200.32" cy="170.65" r="10" fill="transparent"/></g><g class="svgc-point" data-index="16" data-series="0" data-hint="menu A
+price: 40.2
+orders: 56.15" role="img" aria-label="menu A, price: 40.2, orders: 56.15"><title>menu A
+price: 40.2
+orders: 56.15</title><circle class="svgc-dot svgc-s1" cx="209.96" cy="153.71" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="209.96" cy="153.71" r="10" fill="transparent"/></g><g class="svgc-point" data-index="17" data-series="0" data-hint="menu A
+price: 42.4
+orders: 40.17" role="img" aria-label="menu A, price: 42.4, orders: 40.17"><title>menu A
+price: 42.4
+orders: 40.17</title><circle class="svgc-dot svgc-s1" cx="219.6" cy="188.23" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="219.6" cy="188.23" r="10" fill="transparent"/></g><g class="svgc-point" data-index="18" data-series="0" data-hint="menu A
+price: 44.6
+orders: 40.06" role="img" aria-label="menu A, price: 44.6, orders: 40.06"><title>menu A
+price: 44.6
+orders: 40.06</title><circle class="svgc-dot svgc-s1" cx="229.24" cy="188.47" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="229.24" cy="188.47" r="10" fill="transparent"/></g><g class="svgc-point" data-index="19" data-series="0" data-hint="menu A
+price: 46.8
+orders: 59.68" role="img" aria-label="menu A, price: 46.8, orders: 59.68"><title>menu A
+price: 46.8
+orders: 59.68</title><circle class="svgc-dot svgc-s1" cx="238.88" cy="146.09" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="238.88" cy="146.09" r="10" fill="transparent"/></g><g class="svgc-point" data-index="20" data-series="0" data-hint="menu A
+price: 49
+orders: 58.35" role="img" aria-label="menu A, price: 49, orders: 58.35"><title>menu A
+price: 49
+orders: 58.35</title><circle class="svgc-dot svgc-s1" cx="248.52" cy="148.97" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="248.52" cy="148.97" r="10" fill="transparent"/></g><g class="svgc-point" data-index="21" data-series="0" data-hint="menu A
+price: 51.2
+orders: 42.68" role="img" aria-label="menu A, price: 51.2, orders: 42.68"><title>menu A
+price: 51.2
+orders: 42.68</title><circle class="svgc-dot svgc-s1" cx="258.16" cy="182.8" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="258.16" cy="182.8" r="10" fill="transparent"/></g><g class="svgc-point" data-index="22" data-series="0" data-hint="menu A
+price: 53.4
+orders: 51.66" role="img" aria-label="menu A, price: 53.4, orders: 51.66"><title>menu A
+price: 53.4
+orders: 51.66</title><circle class="svgc-dot svgc-s1" cx="267.8" cy="163.41" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="267.8" cy="163.41" r="10" fill="transparent"/></g><g class="svgc-point" data-index="23" data-series="0" data-hint="menu A
+price: 55.6
+orders: 68.63" role="img" aria-label="menu A, price: 55.6, orders: 68.63"><title>menu A
+price: 55.6
+orders: 68.63</title><circle class="svgc-dot svgc-s1" cx="277.44" cy="126.77" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="277.44" cy="126.77" r="10" fill="transparent"/></g><g class="svgc-point" data-index="24" data-series="0" data-hint="menu A
+price: 57.8
+orders: 58.89" role="img" aria-label="menu A, price: 57.8, orders: 58.89"><title>menu A
+price: 57.8
+orders: 58.89</title><circle class="svgc-dot svgc-s1" cx="287.08" cy="147.8" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="287.08" cy="147.8" r="10" fill="transparent"/></g><g class="svgc-point" data-index="25" data-series="0" data-hint="menu A
+price: 60
+orders: 48.05" role="img" aria-label="menu A, price: 60, orders: 48.05"><title>menu A
+price: 60
+orders: 48.05</title><circle class="svgc-dot svgc-s1" cx="296.72" cy="171.22" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="296.72" cy="171.22" r="10" fill="transparent"/></g><g class="svgc-point" data-index="26" data-series="0" data-hint="menu A
+price: 62.2
+orders: 64.19" role="img" aria-label="menu A, price: 62.2, orders: 64.19"><title>menu A
+price: 62.2
+orders: 64.19</title><circle class="svgc-dot svgc-s1" cx="306.36" cy="136.35" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="306.36" cy="136.35" r="10" fill="transparent"/></g><g class="svgc-point" data-index="27" data-series="0" data-hint="menu A
+price: 64.4
+orders: 74.49" role="img" aria-label="menu A, price: 64.4, orders: 74.49"><title>menu A
+price: 64.4
+orders: 74.49</title><circle class="svgc-dot svgc-s1" cx="316" cy="114.11" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="316" cy="114.11" r="10" fill="transparent"/></g><g class="svgc-point" data-index="28" data-series="0" data-hint="menu A
+price: 66.6
+orders: 59.3" role="img" aria-label="menu A, price: 66.6, orders: 59.3"><title>menu A
+price: 66.6
+orders: 59.3</title><circle class="svgc-dot svgc-s1" cx="325.64" cy="146.91" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="325.64" cy="146.91" r="10" fill="transparent"/></g><g class="svgc-point" data-index="29" data-series="0" data-hint="menu A
+price: 68.8
+orders: 56.53" role="img" aria-label="menu A, price: 68.8, orders: 56.53"><title>menu A
+price: 68.8
+orders: 56.53</title><circle class="svgc-dot svgc-s1" cx="335.28" cy="152.89" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="335.28" cy="152.89" r="10" fill="transparent"/></g><g class="svgc-point" data-index="30" data-series="0" data-hint="menu A
+price: 71
+orders: 76.04" role="img" aria-label="menu A, price: 71, orders: 76.04"><title>menu A
+price: 71
+orders: 76.04</title><circle class="svgc-dot svgc-s1" cx="344.92" cy="110.75" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="344.92" cy="110.75" r="10" fill="transparent"/></g><g class="svgc-point" data-index="31" data-series="0" data-hint="menu A
+price: 73.2
+orders: 77.4" role="img" aria-label="menu A, price: 73.2, orders: 77.4"><title>menu A
+price: 73.2
+orders: 77.4</title><circle class="svgc-dot svgc-s1" cx="354.56" cy="107.83" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="354.56" cy="107.83" r="10" fill="transparent"/></g><g class="svgc-point" data-index="32" data-series="0" data-hint="menu A
+price: 75.4
+orders: 61.15" role="img" aria-label="menu A, price: 75.4, orders: 61.15"><title>menu A
+price: 75.4
+orders: 61.15</title><circle class="svgc-dot svgc-s1" cx="364.2" cy="142.92" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="364.2" cy="142.92" r="10" fill="transparent"/></g><g class="svgc-point" data-index="33" data-series="0" data-hint="menu A
+price: 77.6
+orders: 67.59" role="img" aria-label="menu A, price: 77.6, orders: 67.59"><title>menu A
+price: 77.6
+orders: 67.59</title><circle class="svgc-dot svgc-s1" cx="373.84" cy="129" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="373.84" cy="129" r="10" fill="transparent"/></g><g class="svgc-point" data-index="34" data-series="0" data-hint="menu A
+price: 79.8
+orders: 85.79" role="img" aria-label="menu A, price: 79.8, orders: 85.79"><title>menu A
+price: 79.8
+orders: 85.79</title><circle class="svgc-dot svgc-s1" cx="383.48" cy="89.69" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="383.48" cy="89.69" r="10" fill="transparent"/></g><g class="svgc-point" data-index="35" data-series="0" data-hint="menu A
+price: 82
+orders: 78.27" role="img" aria-label="menu A, price: 82, orders: 78.27"><title>menu A
+price: 82
+orders: 78.27</title><circle class="svgc-dot svgc-s1" cx="393.12" cy="105.94" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="393.12" cy="105.94" r="10" fill="transparent"/></g><g class="svgc-point" data-index="36" data-series="0" data-hint="menu A
+price: 84.2
+orders: 65.62" role="img" aria-label="menu A, price: 84.2, orders: 65.62"><title>menu A
+price: 84.2
+orders: 65.62</title><circle class="svgc-dot svgc-s1" cx="402.76" cy="133.26" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="402.76" cy="133.26" r="10" fill="transparent"/></g><g class="svgc-point" data-index="37" data-series="0" data-hint="menu A
+price: 86.4
+orders: 80.02" role="img" aria-label="menu A, price: 86.4, orders: 80.02"><title>menu A
+price: 86.4
+orders: 80.02</title><circle class="svgc-dot svgc-s1" cx="412.4" cy="102.16" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="412.4" cy="102.16" r="10" fill="transparent"/></g><g class="svgc-point" data-index="38" data-series="0" data-hint="menu A
+price: 88.6
+orders: 92.57" role="img" aria-label="menu A, price: 88.6, orders: 92.57"><title>menu A
+price: 88.6
+orders: 92.57</title><circle class="svgc-dot svgc-s1" cx="422.05" cy="75.06" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="422.05" cy="75.06" r="10" fill="transparent"/></g><g class="svgc-point" data-index="39" data-series="0" data-hint="menu A
+price: 90.8
+orders: 78.55" role="img" aria-label="menu A, price: 90.8, orders: 78.55"><title>menu A
+price: 90.8
+orders: 78.55</title><circle class="svgc-dot svgc-s1" cx="431.69" cy="105.33" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="431.69" cy="105.33" r="10" fill="transparent"/></g></g><g class="svgc-series svgc-s2"><g class="svgc-point" data-index="0" data-series="1" data-hint="menu B
+price: 10
+orders: 70" role="img" aria-label="menu B, price: 10, orders: 70"><title>menu B
+price: 10
+orders: 70</title><circle class="svgc-dot svgc-s2" cx="77.62" cy="123.8" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="77.62" cy="123.8" r="10" fill="transparent"/></g><g class="svgc-point" data-index="1" data-series="1" data-hint="menu B
+price: 12.6
+orders: 61.77" role="img" aria-label="menu B, price: 12.6, orders: 61.77"><title>menu B
+price: 12.6
+orders: 61.77</title><circle class="svgc-dot svgc-s2" cx="89.01" cy="141.57" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="89.01" cy="141.57" r="10" fill="transparent"/></g><g class="svgc-point" data-index="2" data-series="1" data-hint="menu B
+price: 15.2
+orders: 49.63" role="img" aria-label="menu B, price: 15.2, orders: 49.63"><title>menu B
+price: 15.2
+orders: 49.63</title><circle class="svgc-dot svgc-s2" cx="100.41" cy="167.8" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="100.41" cy="167.8" r="10" fill="transparent"/></g><g class="svgc-point" data-index="3" data-series="1" data-hint="menu B
+price: 17.8
+orders: 50.04" role="img" aria-label="menu B, price: 17.8, orders: 50.04"><title>menu B
+price: 17.8
+orders: 50.04</title><circle class="svgc-dot svgc-s2" cx="111.8" cy="166.91" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="111.8" cy="166.91" r="10" fill="transparent"/></g><g class="svgc-point" data-index="4" data-series="1" data-hint="menu B
+price: 20.4
+orders: 61.09" role="img" aria-label="menu B, price: 20.4, orders: 61.09"><title>menu B
+price: 20.4
+orders: 61.09</title><circle class="svgc-dot svgc-s2" cx="123.19" cy="143.06" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="123.19" cy="143.06" r="10" fill="transparent"/></g><g class="svgc-point" data-index="5" data-series="1" data-hint="menu B
+price: 23
+orders: 65.27" role="img" aria-label="menu B, price: 23, orders: 65.27"><title>menu B
+price: 23
+orders: 65.27</title><circle class="svgc-dot svgc-s2" cx="134.59" cy="134.03" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="134.59" cy="134.03" r="10" fill="transparent"/></g><g class="svgc-point" data-index="6" data-series="1" data-hint="menu B
+price: 25.6
+orders: 55.14" role="img" aria-label="menu B, price: 25.6, orders: 55.14"><title>menu B
+price: 25.6
+orders: 55.14</title><circle class="svgc-dot svgc-s2" cx="145.98" cy="155.9" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="145.98" cy="155.9" r="10" fill="transparent"/></g><g class="svgc-point" data-index="7" data-series="1" data-hint="menu B
+price: 28.2
+orders: 44.22" role="img" aria-label="menu B, price: 28.2, orders: 44.22"><title>menu B
+price: 28.2
+orders: 44.22</title><circle class="svgc-dot svgc-s2" cx="157.37" cy="179.48" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="157.37" cy="179.48" r="10" fill="transparent"/></g><g class="svgc-point" data-index="8" data-series="1" data-hint="menu B
+price: 30.8
+orders: 47.19" role="img" aria-label="menu B, price: 30.8, orders: 47.19"><title>menu B
+price: 30.8
+orders: 47.19</title><circle class="svgc-dot svgc-s2" cx="168.77" cy="173.07" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="168.77" cy="173.07" r="10" fill="transparent"/></g><g class="svgc-point" data-index="9" data-series="1" data-hint="menu B
+price: 33.4
+orders: 58.38" role="img" aria-label="menu B, price: 33.4, orders: 58.38"><title>menu B
+price: 33.4
+orders: 58.38</title><circle class="svgc-dot svgc-s2" cx="180.16" cy="148.91" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="180.16" cy="148.91" r="10" fill="transparent"/></g><g class="svgc-point" data-index="10" data-series="1" data-hint="menu B
+price: 36
+orders: 60.07" role="img" aria-label="menu B, price: 36, orders: 60.07"><title>menu B
+price: 36
+orders: 60.07</title><circle class="svgc-dot svgc-s2" cx="191.55" cy="145.24" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="191.55" cy="145.24" r="10" fill="transparent"/></g><g class="svgc-point" data-index="11" data-series="1" data-hint="menu B
+price: 38.6
+orders: 48.48" role="img" aria-label="menu B, price: 38.6, orders: 48.48"><title>menu B
+price: 38.6
+orders: 48.48</title><circle class="svgc-dot svgc-s2" cx="202.95" cy="170.29" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="202.95" cy="170.29" r="10" fill="transparent"/></g><g class="svgc-point" data-index="12" data-series="1" data-hint="menu B
+price: 41.2
+orders: 39.26" role="img" aria-label="menu B, price: 41.2, orders: 39.26"><title>menu B
+price: 41.2
+orders: 39.26</title><circle class="svgc-dot svgc-s2" cx="214.34" cy="190.2" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="214.34" cy="190.2" r="10" fill="transparent"/></g><g class="svgc-point" data-index="13" data-series="1" data-hint="menu B
+price: 43.8
+orders: 44.6" role="img" aria-label="menu B, price: 43.8, orders: 44.6"><title>menu B
+price: 43.8
+orders: 44.6</title><circle class="svgc-dot svgc-s2" cx="225.73" cy="178.66" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="225.73" cy="178.66" r="10" fill="transparent"/></g><g class="svgc-point" data-index="14" data-series="1" data-hint="menu B
+price: 46.4
+orders: 55.36" role="img" aria-label="menu B, price: 46.4, orders: 55.36"><title>menu B
+price: 46.4
+orders: 55.36</title><circle class="svgc-dot svgc-s2" cx="237.12" cy="155.41" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="237.12" cy="155.41" r="10" fill="transparent"/></g><g class="svgc-point" data-index="15" data-series="1" data-hint="menu B
+price: 49
+orders: 54.46" role="img" aria-label="menu B, price: 49, orders: 54.46"><title>menu B
+price: 49
+orders: 54.46</title><circle class="svgc-dot svgc-s2" cx="248.52" cy="157.37" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="248.52" cy="157.37" r="10" fill="transparent"/></g><g class="svgc-point" data-index="16" data-series="1" data-hint="menu B
+price: 51.6
+orders: 41.89" role="img" aria-label="menu B, price: 51.6, orders: 41.89"><title>menu B
+price: 51.6
+orders: 41.89</title><circle class="svgc-dot svgc-s2" cx="259.91" cy="184.51" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="259.91" cy="184.51" r="10" fill="transparent"/></g><g class="svgc-point" data-index="17" data-series="1" data-hint="menu B
+price: 54.2
+orders: 34.76" role="img" aria-label="menu B, price: 54.2, orders: 34.76"><title>menu B
+price: 54.2
+orders: 34.76</title><circle class="svgc-dot svgc-s2" cx="271.3" cy="199.92" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="271.3" cy="199.92" r="10" fill="transparent"/></g><g class="svgc-point" data-index="18" data-series="1" data-hint="menu B
+price: 56.8
+orders: 42.19" role="img" aria-label="menu B, price: 56.8, orders: 42.19"><title>menu B
+price: 56.8
+orders: 42.19</title><circle class="svgc-dot svgc-s2" cx="282.7" cy="183.87" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="282.7" cy="183.87" r="10" fill="transparent"/></g><g class="svgc-point" data-index="19" data-series="1" data-hint="menu B
+price: 59.4
+orders: 51.98" role="img" aria-label="menu B, price: 59.4, orders: 51.98"><title>menu B
+price: 59.4
+orders: 51.98</title><circle class="svgc-dot svgc-s2" cx="294.09" cy="162.73" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="294.09" cy="162.73" r="10" fill="transparent"/></g><g class="svgc-point" data-index="20" data-series="1" data-hint="menu B
+price: 62
+orders: 48.47" role="img" aria-label="menu B, price: 62, orders: 48.47"><title>menu B
+price: 62
+orders: 48.47</title><circle class="svgc-dot svgc-s2" cx="305.48" cy="170.31" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="305.48" cy="170.31" r="10" fill="transparent"/></g><g class="svgc-point" data-index="21" data-series="1" data-hint="menu B
+price: 64.6
+orders: 35.48" role="img" aria-label="menu B, price: 64.6, orders: 35.48"><title>menu B
+price: 64.6
+orders: 35.48</title><circle class="svgc-dot svgc-s2" cx="316.88" cy="198.36" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="316.88" cy="198.36" r="10" fill="transparent"/></g><g class="svgc-point" data-index="22" data-series="1" data-hint="menu B
+price: 67.2
+orders: 30.73" role="img" aria-label="menu B, price: 67.2, orders: 30.73"><title>menu B
+price: 67.2
+orders: 30.73</title><circle class="svgc-dot svgc-s2" cx="328.27" cy="208.63" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="328.27" cy="208.63" r="10" fill="transparent"/></g><g class="svgc-point" data-index="23" data-series="1" data-hint="menu B
+price: 69.8
+orders: 39.85" role="img" aria-label="menu B, price: 69.8, orders: 39.85"><title>menu B
+price: 69.8
+orders: 39.85</title><circle class="svgc-dot svgc-s2" cx="339.66" cy="188.93" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="339.66" cy="188.93" r="10" fill="transparent"/></g><g class="svgc-point" data-index="24" data-series="1" data-hint="menu B
+price: 72.4
+orders: 48.17" role="img" aria-label="menu B, price: 72.4, orders: 48.17"><title>menu B
+price: 72.4
+orders: 48.17</title><circle class="svgc-dot svgc-s2" cx="351.06" cy="170.96" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="351.06" cy="170.96" r="10" fill="transparent"/></g><g class="svgc-point" data-index="25" data-series="1" data-hint="menu B
+price: 75
+orders: 42.18" role="img" aria-label="menu B, price: 75, orders: 42.18"><title>menu B
+price: 75
+orders: 42.18</title><circle class="svgc-dot svgc-s2" cx="362.45" cy="183.9" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="362.45" cy="183.9" r="10" fill="transparent"/></g><g class="svgc-point" data-index="26" data-series="1" data-hint="menu B
+price: 77.6
+orders: 29.33" role="img" aria-label="menu B, price: 77.6, orders: 29.33"><title>menu B
+price: 77.6
+orders: 29.33</title><circle class="svgc-dot svgc-s2" cx="373.84" cy="211.64" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="373.84" cy="211.64" r="10" fill="transparent"/></g><g class="svgc-point" data-index="27" data-series="1" data-hint="menu B
+price: 80.2
+orders: 27.14" role="img" aria-label="menu B, price: 80.2, orders: 27.14"><title>menu B
+price: 80.2
+orders: 27.14</title><circle class="svgc-dot svgc-s2" cx="385.24" cy="216.39" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="385.24" cy="216.39" r="10" fill="transparent"/></g><g class="svgc-point" data-index="28" data-series="1" data-hint="menu B
+price: 82.8
+orders: 37.48" role="img" aria-label="menu B, price: 82.8, orders: 37.48"><title>menu B
+price: 82.8
+orders: 37.48</title><circle class="svgc-dot svgc-s2" cx="396.63" cy="194.04" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="396.63" cy="194.04" r="10" fill="transparent"/></g><g class="svgc-point" data-index="29" data-series="1" data-hint="menu B
+price: 85.4
+orders: 43.9" role="img" aria-label="menu B, price: 85.4, orders: 43.9"><title>menu B
+price: 85.4
+orders: 43.9</title><circle class="svgc-dot svgc-s2" cx="408.02" cy="180.18" r="4" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/><circle class="svgc-hit" cx="408.02" cy="180.18" r="10" fill="transparent"/></g></g></svg>

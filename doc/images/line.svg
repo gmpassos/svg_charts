@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="svgc-root svgc-line-chart" width="480" height="240" viewBox="0 0 480 240" role="group" aria-label="Daily traffic"><title>Daily traffic</title><style>.svgc-root{font-family:system-ui, -apple-system, "Segoe UI", sans-serif;font-size:12px}.svgc-root text{font-variant-numeric:tabular-nums}.svgc-small{font-size:11px}.svgc-strong{font-weight:600}.svgc-root .svgc-line{fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}.svgc-root .svgc-area{stroke:none;fill-opacity:.16}.svgc-root .svgc-bar{stroke:none}.svgc-hit,.svgc-band{fill:transparent}.svgc-cross{stroke-width:1;opacity:0}.svgc-band:hover .svgc-cross{opacity:1}.svgc-mark:hover .svgc-bar,.svgc-mark:hover .svgc-slice{opacity:.82}.svgc-point:hover .svgc-dot{stroke-width:3}.svgc-grid{stroke-width:1}.svgc-axis{stroke-width:1}.svgc-root .svgc-grid,.svgc-root .svgc-axis,.svgc-root .svgc-line,.svgc-root .svgc-area,.svgc-root text{pointer-events:none}.svgc-root [data-hint]{cursor:default}.svgc-clickable [data-index]{cursor:pointer}.svgc-root{--svgc-c-surface:var(--svgc-surface,#fcfcfb);--svgc-c-text:var(--svgc-text,#0b0b0b);--svgc-c-text-secondary:var(--svgc-text-secondary,#52514e);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#e1e0d9);--svgc-c-axis:var(--svgc-axis,#c3c2b7);--svgc-c-negative:var(--svgc-negative,#e34948);--svgc-c-good:var(--svgc-good,#006300);--svgc-c-bad:var(--svgc-bad,#d03b3b);--svgc-c-series-1:var(--svgc-series-1,#2a78d6);--svgc-c-series-2:var(--svgc-series-2,#eb6834);--svgc-c-series-3:var(--svgc-series-3,#1baf7a);--svgc-c-series-4:var(--svgc-series-4,#eda100);--svgc-c-series-5:var(--svgc-series-5,#e87ba4);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#6250d6);--svgc-c-series-8:var(--svgc-series-8,#e34948);--svgc-c-seq-1:var(--svgc-seq-1,#cde2fb);--svgc-c-seq-2:var(--svgc-seq-2,#9ec5f4);--svgc-c-seq-3:var(--svgc-seq-3,#6da7ec);--svgc-c-seq-4:var(--svgc-seq-4,#3987e5);--svgc-c-seq-5:var(--svgc-seq-5,#256abf);--svgc-c-seq-6:var(--svgc-seq-6,#184f95);--svgc-c-seq-7:var(--svgc-seq-7,#0d366b)}.svgc-root .svgc-bg{fill:var(--svgc-c-surface)}.svgc-root .svgc-text{fill:var(--svgc-c-text)}.svgc-root .svgc-label{fill:var(--svgc-c-text-secondary)}.svgc-root .svgc-tick{fill:var(--svgc-c-muted)}.svgc-root .svgc-grid{stroke:var(--svgc-c-grid)}.svgc-root .svgc-axis{stroke:var(--svgc-c-axis)}.svgc-root .svgc-cross{stroke:var(--svgc-c-muted)}.svgc-root .svgc-track{fill:var(--svgc-c-grid)}.svgc-root .svgc-neg{fill:var(--svgc-c-negative)}.svgc-root .svgc-good{fill:var(--svgc-c-good)}.svgc-root .svgc-bad{fill:var(--svgc-c-bad)}.svgc-root .svgc-empty{fill:var(--svgc-c-grid)}.svgc-root .svgc-dot{stroke:var(--svgc-c-surface)}.svgc-root .svgc-slice{stroke:var(--svgc-c-surface)}.svgc-root .svgc-band:hover{fill:var(--svgc-c-grid);fill-opacity:.5}.svgc-root .svgc-s1:not(.svgc-line){fill:var(--svgc-c-series-1)}.svgc-root .svgc-s1.svgc-line{stroke:var(--svgc-c-series-1)}.svgc-root .svgc-s2:not(.svgc-line){fill:var(--svgc-c-series-2)}.svgc-root .svgc-s2.svgc-line{stroke:var(--svgc-c-series-2)}.svgc-root .svgc-s3:not(.svgc-line){fill:var(--svgc-c-series-3)}.svgc-root .svgc-s3.svgc-line{stroke:var(--svgc-c-series-3)}.svgc-root .svgc-s4:not(.svgc-line){fill:var(--svgc-c-series-4)}.svgc-root .svgc-s4.svgc-line{stroke:var(--svgc-c-series-4)}.svgc-root .svgc-s5:not(.svgc-line){fill:var(--svgc-c-series-5)}.svgc-root .svgc-s5.svgc-line{stroke:var(--svgc-c-series-5)}.svgc-root .svgc-s6:not(.svgc-line){fill:var(--svgc-c-series-6)}.svgc-root .svgc-s6.svgc-line{stroke:var(--svgc-c-series-6)}.svgc-root .svgc-s7:not(.svgc-line){fill:var(--svgc-c-series-7)}.svgc-root .svgc-s7.svgc-line{stroke:var(--svgc-c-series-7)}.svgc-root .svgc-s8:not(.svgc-line){fill:var(--svgc-c-series-8)}.svgc-root .svgc-s8.svgc-line{stroke:var(--svgc-c-series-8)}.svgc-root .svgc-q1{fill:var(--svgc-c-seq-1)}.svgc-root .svgc-q2{fill:var(--svgc-c-seq-2)}.svgc-root .svgc-q3{fill:var(--svgc-c-seq-3)}.svgc-root .svgc-q4{fill:var(--svgc-c-seq-4)}.svgc-root .svgc-q5{fill:var(--svgc-c-seq-5)}.svgc-root .svgc-q6{fill:var(--svgc-c-seq-6)}.svgc-root .svgc-q7{fill:var(--svgc-c-seq-7)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .svgc-root{--svgc-c-surface:var(--svgc-surface,#1a1a19);--svgc-c-text:var(--svgc-text,#f0efec);--svgc-c-text-secondary:var(--svgc-text-secondary,#c3c2b7);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#2c2c2a);--svgc-c-axis:var(--svgc-axis,#383835);--svgc-c-negative:var(--svgc-negative,#e66767);--svgc-c-good:var(--svgc-good,#0ca30c);--svgc-c-bad:var(--svgc-bad,#e66767);--svgc-c-series-1:var(--svgc-series-1,#3987e5);--svgc-c-series-2:var(--svgc-series-2,#d95926);--svgc-c-series-3:var(--svgc-series-3,#199e70);--svgc-c-series-4:var(--svgc-series-4,#c98500);--svgc-c-series-5:var(--svgc-series-5,#d55181);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#9085e9);--svgc-c-series-8:var(--svgc-series-8,#e66767);--svgc-c-seq-1:var(--svgc-seq-1,#104281);--svgc-c-seq-2:var(--svgc-seq-2,#184f95);--svgc-c-seq-3:var(--svgc-seq-3,#256abf);--svgc-c-seq-4:var(--svgc-seq-4,#2a78d6);--svgc-c-seq-5:var(--svgc-seq-5,#5598e7);--svgc-c-seq-6:var(--svgc-seq-6,#86b6ef);--svgc-c-seq-7:var(--svgc-seq-7,#b7d3f6)}}:root[data-theme="dark"] .svgc-root{--svgc-c-surface:var(--svgc-surface,#1a1a19);--svgc-c-text:var(--svgc-text,#f0efec);--svgc-c-text-secondary:var(--svgc-text-secondary,#c3c2b7);--svgc-c-muted:var(--svgc-muted,#898781);--svgc-c-grid:var(--svgc-grid,#2c2c2a);--svgc-c-axis:var(--svgc-axis,#383835);--svgc-c-negative:var(--svgc-negative,#e66767);--svgc-c-good:var(--svgc-good,#0ca30c);--svgc-c-bad:var(--svgc-bad,#e66767);--svgc-c-series-1:var(--svgc-series-1,#3987e5);--svgc-c-series-2:var(--svgc-series-2,#d95926);--svgc-c-series-3:var(--svgc-series-3,#199e70);--svgc-c-series-4:var(--svgc-series-4,#c98500);--svgc-c-series-5:var(--svgc-series-5,#d55181);--svgc-c-series-6:var(--svgc-series-6,#008300);--svgc-c-series-7:var(--svgc-series-7,#9085e9);--svgc-c-series-8:var(--svgc-series-8,#e66767);--svgc-c-seq-1:var(--svgc-seq-1,#104281);--svgc-c-seq-2:var(--svgc-seq-2,#184f95);--svgc-c-seq-3:var(--svgc-seq-3,#256abf);--svgc-c-seq-4:var(--svgc-seq-4,#2a78d6);--svgc-c-seq-5:var(--svgc-seq-5,#5598e7);--svgc-c-seq-6:var(--svgc-seq-6,#86b6ef);--svgc-c-seq-7:var(--svgc-seq-7,#b7d3f6)}</style><text class="svgc-text svgc-strong" x="8" y="20" fill="#0b0b0b">Daily traffic</text><g class="svgc-legend"><rect class="svgc-s1 svgc-swatch" x="8" y="38.5" width="10" height="10" rx="2" fill="#2a78d6"/><text class="svgc-label svgc-small" x="24" y="47.35" fill="#52514e">visits</text><rect class="svgc-s2 svgc-swatch" x="70.8" y="38.5" width="10" height="10" rx="2" fill="#eb6834"/><text class="svgc-label svgc-small" x="86.8" y="47.35" fill="#52514e">signups</text></g><g class="svgc-ticks"><line class="svgc-grid" x1="33.8" y1="215" x2="472" y2="215" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="218.85" text-anchor="end" fill="#898781">50</text><line class="svgc-grid" x1="33.8" y1="176" x2="472" y2="176" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="179.85" text-anchor="end" fill="#898781">100</text><line class="svgc-grid" x1="33.8" y1="137" x2="472" y2="137" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="140.85" text-anchor="end" fill="#898781">150</text><line class="svgc-grid" x1="33.8" y1="98" x2="472" y2="98" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="101.85" text-anchor="end" fill="#898781">200</text><line class="svgc-grid" x1="33.8" y1="59" x2="472" y2="59" stroke="#e1e0d9"/><text class="svgc-tick svgc-small" x="27.8" y="62.85" text-anchor="end" fill="#898781">250</text><line class="svgc-axis" x1="33.8" y1="215" x2="472" y2="215" stroke="#c3c2b7"/></g><g class="svgc-bands"><g class="svgc-band" data-index="0" data-hint="Nov 1
+visits: 120
+signups: 85" role="img" aria-label="Nov 1, visits: 120, signups: 85"><title>Nov 1
+visits: 120
+signups: 85</title><rect x="33.8" y="59" width="7.56" height="156" fill="transparent"/><line class="svgc-cross" x1="33.8" y1="59" x2="33.8" y2="215"/></g><g class="svgc-band" data-index="1" data-hint="Nov 2
+visits: 131.9
+signups: 85.5" role="img" aria-label="Nov 2, visits: 131.9, signups: 85.5"><title>Nov 2
+visits: 131.9
+signups: 85.5</title><rect x="41.36" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="48.91" y1="59" x2="48.91" y2="215"/></g><g class="svgc-band" data-index="2" data-hint="Nov 3
+visits: 143.2
+signups: 85.03" role="img" aria-label="Nov 3, visits: 143.2, signups: 85.03"><title>Nov 3
+visits: 143.2
+signups: 85.03</title><rect x="56.47" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="64.02" y1="59" x2="64.02" y2="215"/></g><g class="svgc-band" data-index="3" data-hint="Nov 4
+visits: 153.3
+signups: 83.63" role="img" aria-label="Nov 4, visits: 153.3, signups: 83.63"><title>Nov 4
+visits: 153.3
+signups: 83.63</title><rect x="71.58" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="79.13" y1="59" x2="79.13" y2="215"/></g><g class="svgc-band" data-index="4" data-hint="Nov 5
+visits: 161.7
+signups: 81.42" role="img" aria-label="Nov 5, visits: 161.7, signups: 81.42"><title>Nov 5
+visits: 161.7
+signups: 81.42</title><rect x="86.69" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="94.24" y1="59" x2="94.24" y2="215"/></g><g class="svgc-band" data-index="5" data-hint="Nov 6
+visits: 168
+signups: 78.51" role="img" aria-label="Nov 6, visits: 168, signups: 78.51"><title>Nov 6
+visits: 168
+signups: 78.51</title><rect x="101.8" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="109.35" y1="59" x2="109.35" y2="215"/></g><g class="svgc-band" data-index="6" data-hint="Nov 7
+visits: 171.9
+signups: 75.06" role="img" aria-label="Nov 7, visits: 171.9, signups: 75.06"><title>Nov 7
+visits: 171.9
+signups: 75.06</title><rect x="116.91" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="124.46" y1="59" x2="124.46" y2="215"/></g><g class="svgc-band" data-index="7" data-hint="Nov 8
+visits: 173.4
+signups: 71.25" role="img" aria-label="Nov 8, visits: 173.4, signups: 71.25"><title>Nov 8
+visits: 173.4
+signups: 71.25</title><rect x="132.02" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="139.57" y1="59" x2="139.57" y2="215"/></g><g class="svgc-band" data-index="8" data-hint="Nov 9
+visits: 172.4
+signups: 67.27" role="img" aria-label="Nov 9, visits: 172.4, signups: 67.27"><title>Nov 9
+visits: 172.4
+signups: 67.27</title><rect x="147.13" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="154.68" y1="59" x2="154.68" y2="215"/></g><g class="svgc-band" data-index="9" data-hint="Nov 10
+visits: 169.1
+signups: 63.32" role="img" aria-label="Nov 10, visits: 169.1, signups: 63.32"><title>Nov 10
+visits: 169.1
+signups: 63.32</title><rect x="162.24" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="169.79" y1="59" x2="169.79" y2="215"/></g><g class="svgc-band" data-index="10" data-hint="Nov 11
+visits: 163.9
+signups: 59.6" role="img" aria-label="Nov 11, visits: 163.9, signups: 59.6"><title>Nov 11
+visits: 163.9
+signups: 59.6</title><rect x="177.35" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="184.9" y1="59" x2="184.9" y2="215"/></g><g class="svgc-band" data-index="11" data-hint="Nov 12
+visits: 157.3
+signups: 56.29" role="img" aria-label="Nov 12, visits: 157.3, signups: 56.29"><title>Nov 12
+visits: 157.3
+signups: 56.29</title><rect x="192.46" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="200.01" y1="59" x2="200.01" y2="215"/></g><g class="svgc-band" data-index="12" data-hint="Nov 13
+visits: 149.6
+signups: —" role="img" aria-label="Nov 13, visits: 149.6, signups: —"><title>Nov 13
+visits: 149.6
+signups: —</title><rect x="207.57" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="215.12" y1="59" x2="215.12" y2="215"/></g><g class="svgc-band" data-index="13" data-hint="Nov 14
+visits: 141.7
+signups: —" role="img" aria-label="Nov 14, visits: 141.7, signups: —"><title>Nov 14
+visits: 141.7
+signups: —</title><rect x="222.68" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="230.23" y1="59" x2="230.23" y2="215"/></g><g class="svgc-band" data-index="14" data-hint="Nov 15
+visits: 134
+signups: 50.44" role="img" aria-label="Nov 15, visits: 134, signups: 50.44"><title>Nov 15
+visits: 134
+signups: 50.44</title><rect x="237.79" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="245.34" y1="59" x2="245.34" y2="215"/></g><g class="svgc-band" data-index="15" data-hint="Nov 16
+visits: 127.1
+signups: 50.25" role="img" aria-label="Nov 16, visits: 127.1, signups: 50.25"><title>Nov 16
+visits: 127.1
+signups: 50.25</title><rect x="252.9" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="260.46" y1="59" x2="260.46" y2="215"/></g><g class="svgc-band" data-index="16" data-hint="Nov 17
+visits: 121.7
+signups: 51.04" role="img" aria-label="Nov 17, visits: 121.7, signups: 51.04"><title>Nov 17
+visits: 121.7
+signups: 51.04</title><rect x="268.01" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="275.57" y1="59" x2="275.57" y2="215"/></g><g class="svgc-band" data-index="17" data-hint="Nov 18
+visits: 118.2
+signups: 52.83" role="img" aria-label="Nov 18, visits: 118.2, signups: 52.83"><title>Nov 18
+visits: 118.2
+signups: 52.83</title><rect x="283.12" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="290.68" y1="59" x2="290.68" y2="215"/></g><g class="svgc-band" data-index="18" data-hint="Nov 19
+visits: 116.9
+signups: 55.58" role="img" aria-label="Nov 19, visits: 116.9, signups: 55.58"><title>Nov 19
+visits: 116.9
+signups: 55.58</title><rect x="298.23" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="305.79" y1="59" x2="305.79" y2="215"/></g><g class="svgc-band" data-index="19" data-hint="Nov 20
+visits: 118
+signups: 59.23" role="img" aria-label="Nov 20, visits: 118, signups: 59.23"><title>Nov 20
+visits: 118
+signups: 59.23</title><rect x="313.34" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="320.9" y1="59" x2="320.9" y2="215"/></g><g class="svgc-band" data-index="20" data-hint="Nov 21
+visits: 121.6
+signups: 63.66" role="img" aria-label="Nov 21, visits: 121.6, signups: 63.66"><title>Nov 21
+visits: 121.6
+signups: 63.66</title><rect x="328.45" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="336.01" y1="59" x2="336.01" y2="215"/></g><g class="svgc-band" data-index="21" data-hint="Nov 22
+visits: 127.6
+signups: 68.74" role="img" aria-label="Nov 22, visits: 127.6, signups: 68.74"><title>Nov 22
+visits: 127.6
+signups: 68.74</title><rect x="343.56" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="351.12" y1="59" x2="351.12" y2="215"/></g><g class="svgc-band" data-index="22" data-hint="Nov 23
+visits: 135.8
+signups: 74.32" role="img" aria-label="Nov 23, visits: 135.8, signups: 74.32"><title>Nov 23
+visits: 135.8
+signups: 74.32</title><rect x="358.67" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="366.23" y1="59" x2="366.23" y2="215"/></g><g class="svgc-band" data-index="23" data-hint="Nov 24
+visits: 145.7
+signups: 80.2" role="img" aria-label="Nov 24, visits: 145.7, signups: 80.2"><title>Nov 24
+visits: 145.7
+signups: 80.2</title><rect x="373.78" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="381.34" y1="59" x2="381.34" y2="215"/></g><g class="svgc-band" data-index="24" data-hint="Nov 25
+visits: 156.8
+signups: 86.19" role="img" aria-label="Nov 25, visits: 156.8, signups: 86.19"><title>Nov 25
+visits: 156.8
+signups: 86.19</title><rect x="388.89" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="396.45" y1="59" x2="396.45" y2="215"/></g><g class="svgc-band" data-index="25" data-hint="Nov 26
+visits: 168.7
+signups: 92.09" role="img" aria-label="Nov 26, visits: 168.7, signups: 92.09"><title>Nov 26
+visits: 168.7
+signups: 92.09</title><rect x="404" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="411.56" y1="59" x2="411.56" y2="215"/></g><g class="svgc-band" data-index="26" data-hint="Nov 27
+visits: 180.6
+signups: 97.71" role="img" aria-label="Nov 27, visits: 180.6, signups: 97.71"><title>Nov 27
+visits: 180.6
+signups: 97.71</title><rect x="419.11" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="426.67" y1="59" x2="426.67" y2="215"/></g><g class="svgc-band" data-index="27" data-hint="Nov 28
+visits: 192
+signups: 102.9" role="img" aria-label="Nov 28, visits: 192, signups: 102.9"><title>Nov 28
+visits: 192
+signups: 102.9</title><rect x="434.22" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="441.78" y1="59" x2="441.78" y2="215"/></g><g class="svgc-band" data-index="28" data-hint="Nov 29
+visits: 202.3
+signups: 107.4" role="img" aria-label="Nov 29, visits: 202.3, signups: 107.4"><title>Nov 29
+visits: 202.3
+signups: 107.4</title><rect x="449.33" y="59" width="15.11" height="156" fill="transparent"/><line class="svgc-cross" x1="456.89" y1="59" x2="456.89" y2="215"/></g><g class="svgc-band" data-index="29" data-hint="Nov 30
+visits: 210.9
+signups: 111.1" role="img" aria-label="Nov 30, visits: 210.9, signups: 111.1"><title>Nov 30
+visits: 210.9
+signups: 111.1</title><rect x="464.44" y="59" width="7.56" height="156" fill="transparent"/><line class="svgc-cross" x1="472" y1="59" x2="472" y2="215"/></g></g><g class="svgc-series svgc-s1"><path class="svgc-line svgc-s1" d="M33.8 160.4 C38.84 157.31 43.87 154.13 48.91 151.12 C53.95 148.11 58.98 145.09 64.02 142.32 C69.06 139.55 74.09 136.84 79.13 134.45 C84.17 132.07 89.2 129.78 94.24 127.91 C99.28 126.03 104.31 124.25 109.35 122.99 C114.39 121.73 119.43 120.47 124.46 119.92 C129.5 119.36 134.54 118.78 139.57 118.78 C144.61 118.78 149.65 119.16 154.68 119.55 C159.72 119.94 164.76 121.05 169.79 122.08 C174.83 123.12 179.87 124.61 184.9 126.13 C189.94 127.64 194.98 129.48 200.01 131.33 C205.05 133.18 210.09 135.25 215.12 137.28 C220.16 139.3 225.2 141.46 230.23 143.5 C235.27 145.53 240.31 147.62 245.34 149.5 C250.38 151.39 255.42 153.26 260.46 154.83 C265.49 156.4 270.53 157.94 275.57 159.05 C280.6 160.16 285.64 161.31 290.68 161.8 C295.71 162.3 300.75 162.82 305.79 162.82 C310.82 162.82 315.86 162.39 320.9 161.94 C325.93 161.49 330.97 160.29 336.01 159.12 C341.04 157.95 346.08 156.23 351.12 154.44 C356.15 152.64 361.19 150.41 366.23 148.09 C371.26 145.77 376.3 143.1 381.34 140.38 C386.37 137.65 391.41 134.67 396.45 131.68 C401.49 128.69 406.52 125.53 411.56 122.44 C416.6 119.34 421.63 116.16 426.67 113.13 C431.71 110.1 436.74 107.05 441.78 104.24 C446.82 101.43 451.85 98.66 456.89 96.22 C461.93 93.78 466.96 91.73 472 89.48" fill="none" stroke="#2a78d6" stroke-width="2"/></g><g class="svgc-series svgc-s2"><path class="svgc-line svgc-s2" d="M33.8 187.7 C38.84 187.57 43.87 187.31 48.91 187.31 C53.95 187.31 58.98 187.5 64.02 187.68 C69.06 187.86 74.09 188.32 79.13 188.77 C84.17 189.21 89.2 189.84 94.24 190.49 C99.28 191.15 104.31 191.94 109.35 192.76 C114.39 193.58 119.43 194.51 124.46 195.45 C129.5 196.4 134.54 197.41 139.57 198.43 C144.61 199.44 149.65 200.5 154.68 201.53 C159.72 202.56 164.76 203.61 169.79 204.61 C174.83 205.61 179.87 206.6 184.9 207.51 C189.94 208.43 194.98 209.24 200.01 210.1" fill="none" stroke="#eb6834" stroke-width="2"/><path class="svgc-line svgc-s2" d="M245.34 214.65 C250.38 214.7 255.42 214.8 260.46 214.8 C265.49 214.8 270.53 214.47 275.57 214.19 C280.6 213.9 285.64 213.36 290.68 212.79 C295.71 212.23 300.75 211.46 305.79 210.65 C310.82 209.83 315.86 208.84 320.9 207.8 C325.93 206.76 330.97 205.58 336.01 204.35 C341.04 203.11 346.08 201.76 351.12 200.38 C356.15 199 361.19 197.52 366.23 196.03 C371.26 194.55 376.3 192.99 381.34 191.45 C386.37 189.9 391.41 188.32 396.45 186.77 C401.49 185.23 406.52 183.67 411.56 182.17 C416.6 180.67 421.63 179.18 426.67 177.78 C431.71 176.39 436.74 175.02 441.78 173.76 C446.82 172.51 451.85 171.3 456.89 170.24 C461.93 169.17 466.96 168.29 472 167.31" fill="none" stroke="#eb6834" stroke-width="2"/></g><g class="svgc-xlabels"><text class="svgc-tick svgc-small" x="49.2" y="230" text-anchor="middle" fill="#898781">Nov 1</text><text class="svgc-tick svgc-small" x="94.24" y="230" text-anchor="middle" fill="#898781">Nov 5</text><text class="svgc-tick svgc-small" x="154.68" y="230" text-anchor="middle" fill="#898781">Nov 9</text><text class="svgc-tick svgc-small" x="215.12" y="230" text-anchor="middle" fill="#898781">Nov 13</text><text class="svgc-tick svgc-small" x="275.57" y="230" text-anchor="middle" fill="#898781">Nov 17</text><text class="svgc-tick svgc-small" x="336.01" y="230" text-anchor="middle" fill="#898781">Nov 21</text><text class="svgc-tick svgc-small" x="396.45" y="230" text-anchor="middle" fill="#898781">Nov 25</text><text class="svgc-tick svgc-small" x="453.3" y="230" text-anchor="middle" fill="#898781">Nov 30</text></g></svg>
