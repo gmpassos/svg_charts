@@ -287,6 +287,10 @@ class ColumnChart implements SvgChart {
         if (v == null) continue;
         final x = stacked ? groupX : groupX + s * (barW + 2);
         final double y0, y1;
+        // Whether a stacked segment starts past the axis' end (a fitted
+        // axis cuts the stack): it then starts at the axis line itself, with
+        // no neighbour there to leave a gap from.
+        var stackStartCut = false;
         if (stacked) {
           final from = v >= 0 ? up : down;
           final to = from + v;
@@ -297,6 +301,7 @@ class ColumnChart implements SvgChart {
           }
           y0 = yIn(from);
           y1 = yIn(to);
+          stackStartCut = y(from) != y0;
         } else {
           y0 = base;
           y1 = yIn(v);
@@ -332,9 +337,9 @@ class ColumnChart implements SvgChart {
         // Stacked segments: a 2 px surface gap between neighbours.
         if (stacked) {
           if (v > 0 && s != lastUp) top += 1;
-          if (v > 0 && up - v != 0) bottom -= 1;
+          if (v > 0 && up - v != 0 && !stackStartCut) bottom -= 1;
           if (v < 0 && s != lastDown) bottom -= 1;
-          if (v < 0 && down - v != 0) top += 1;
+          if (v < 0 && down - v != 0 && !stackStartCut) top += 1;
         }
         final h = bottom - top;
         if (h > 0) {

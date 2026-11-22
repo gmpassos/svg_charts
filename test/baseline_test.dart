@@ -124,10 +124,15 @@ void main() {
       final ticks = ticksOf(root);
       expect(ticks.first, greaterThan(0));
       expect(ticks.first, lessThan(120));
-      // Nothing is drawn below the axis.
+      // The first series' segments lie wholly below the axis: not drawn.
+      // The second's start below it, so they are cut at the axis line,
+      // with no stacking gap left above it.
       final plot = plotOf(root);
-      for (final c in columnsOf(root)) {
-        expect(c.bottom, lessThanOrEqualTo(plot.bottom + 0.01));
+      final cols = columnsOf(root);
+      expect(cols, hasLength(2));
+      for (final c in cols) {
+        expect(c.bottom, closeTo(plot.bottom, 0.01));
+        expect(c.bottom - c.top, greaterThan(1));
       }
     });
 
