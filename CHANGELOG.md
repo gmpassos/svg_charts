@@ -1,3 +1,22 @@
+## 0.2.0
+
+**Where a value axis starts.** A new `ScaleBaseline` enum chooses whether a
+value axis includes zero (`ScaleBaseline.zero`) or fits the data, starting at
+its lowest value rounded down to a tick (`ScaleBaseline.min`). An explicit
+`yMin` / `yMax` still wins. The defaults are unchanged.
+
+- `ColumnChart` (and `ColumnChart.of`): `baseline:`, default `zero`. With
+  `min`, columns start at the fitted axis' end nearest zero (the top when every
+  value is negative), and that end is pulled a little past the data so the
+  column nearest zero keeps a height. Stacked columns fit their stacks' ends.
+- `LineChart` / `AreaChart` (and `.of`): `baseline:`, default `min` for a line
+  and `zero` for an area. A fitted area fills down to the axis' end nearest
+  zero.
+- `ScatterChart`: `xBaseline:` and `yBaseline:`, both default `min`.
+- When zero isn't a tick, the axis line of columns and areas is drawn where
+  they start: at the top for a domain wholly below zero (before, it was always
+  at the bottom, away from columns hanging from an explicit negative `yMax`).
+
 ## 0.1.0
 
 The first release: charts rendered as SVG markup, grown from the charts of

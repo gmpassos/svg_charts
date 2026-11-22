@@ -12,7 +12,9 @@ import '../theme.dart';
 
 /// A scatter chart: each point of each series at its x and y value.
 ///
-/// Both axes are value axes with round ticks fitted to the data. Points
+/// Both axes are value axes with round ticks fitted to the data
+/// ([ScaleBaseline.min]); [xBaseline] / [yBaseline] [ScaleBaseline.zero]
+/// make an axis include zero. Points
 /// are 8 px dots with a surface-coloured ring, so overlapping points stay
 /// apart. Each hint gives the point's label (when it has one), its series,
 /// and its x and y values.
@@ -43,6 +45,8 @@ class ScatterChart implements SvgChart {
     this.radius = 4,
     this.caption,
     this.grid = true,
+    this.xBaseline = ScaleBaseline.min,
+    this.yBaseline = ScaleBaseline.min,
   });
 
   /// The data.
@@ -90,6 +94,14 @@ class ScatterChart implements SvgChart {
   /// Whether to draw grid lines at the ticks.
   final bool grid;
 
+  /// Where the x axis starts: fitted to the x values ([ScaleBaseline.min],
+  /// the default) or including zero ([ScaleBaseline.zero]).
+  final ScaleBaseline xBaseline;
+
+  /// Where the y axis starts: fitted to the y values ([ScaleBaseline.min],
+  /// the default) or including zero ([ScaleBaseline.zero]).
+  final ScaleBaseline yBaseline;
+
   @override
   String render() {
     final points = [
@@ -113,7 +125,7 @@ class ScatterChart implements SvgChart {
       theme,
       width: width,
       height: height,
-      domain: valueDomain([for (final p in points) p.y], baseline: false),
+      domain: valueDomain([for (final p in points) p.y], baseline: yBaseline),
       title: title,
       legend: [for (final s in series) s.name],
       legendPosition: legend,
@@ -124,7 +136,7 @@ class ScatterChart implements SvgChart {
     final area = frame.area;
     final y = frame.scale;
     // The x axis: its own round ticks over the x values.
-    final xe = dataExtent([for (final p in points) p.x]) ?? (min: 0, max: 1);
+    final xe = valueDomain([for (final p in points) p.x], baseline: xBaseline);
     final xTicks = niceTicks(
       xe.min,
       xe.max,

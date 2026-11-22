@@ -3,7 +3,7 @@ description: >-
   Charts rendered as SVG markup: columns, bars, lines, areas, sparklines,
   scatter, pie and donut, gauges, heatmaps and stat tiles, with hints and
   light/dark themes. Pure Dart, so it renders in browsers and on servers.
-version: 0.1.0
+version: 0.2.0
 repository: https://github.com/gmpassos/svg_charts
 issue_tracker: https://github.com/gmpassos/svg_charts/issues
 

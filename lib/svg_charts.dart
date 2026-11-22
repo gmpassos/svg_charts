@@ -69,7 +69,13 @@ export 'src/hints.dart'
         shareOf,
         totalOf;
 export 'src/scale.dart'
-    show LinearScale, dataExtent, isDrawable, niceStep, niceTicks;
+    show
+        LinearScale,
+        ScaleBaseline,
+        dataExtent,
+        isDrawable,
+        niceStep,
+        niceTicks;
 export 'src/series.dart' show ChartMark, HintBuilder, Series, XYPoint, XYSeries;
 export 'src/stats.dart' show HistogramBin, finiteValues, histogramBins;
 export 'src/svg_writer.dart' show SvgWriter, escapeXml, svgNum;

@@ -22,8 +22,9 @@ import '../theme.dart';
 /// there, and it shows a crosshair; each point's own hint is its series.
 ///
 /// The value axis fits the data and doesn't force zero (a line's shape is
-/// the point); pass [yMin]: 0 when the level matters. [AreaChart] does
-/// include zero, as its filled area is a magnitude.
+/// the point); pass [baseline]: [ScaleBaseline.zero] when the level
+/// matters. [AreaChart] does include zero by default, as its filled area is
+/// a magnitude.
 ///
 /// ```dart
 /// final svg = LineChart(
@@ -50,6 +51,7 @@ class LineChart implements SvgChart {
     this.points,
     this.yMin,
     this.yMax,
+    this.baseline = ScaleBaseline.min,
     this.caption,
     this.grid = true,
     this.hint,
@@ -73,6 +75,7 @@ class LineChart implements SvgChart {
     bool? points,
     num? yMin,
     num? yMax,
+    ScaleBaseline baseline = ScaleBaseline.min,
     String? caption,
     bool grid = true,
     HintBuilder? hint,
@@ -92,6 +95,7 @@ class LineChart implements SvgChart {
          points: points,
          yMin: yMin,
          yMax: yMax,
+         baseline: baseline,
          caption: caption,
          grid: grid,
          hint: hint,
@@ -114,6 +118,7 @@ class LineChart implements SvgChart {
     required this.points,
     required this.yMin,
     required this.yMax,
+    required this.baseline,
     required this.caption,
     required this.grid,
     required this.hint,
@@ -165,11 +170,17 @@ class LineChart implements SvgChart {
   /// crosshair still read every value).
   final bool? points;
 
-  /// The value axis' low end (by default the data's).
+  /// The value axis' low end (by default the data's: see [baseline]).
   final num? yMin;
 
-  /// The value axis' high end (by default the data's).
+  /// The value axis' high end (by default the data's: see [baseline]).
   final num? yMax;
+
+  /// Where the value axis starts when [yMin] / [yMax] don't say: fitted to
+  /// the data ([ScaleBaseline.min], a [LineChart]'s default) or including
+  /// zero ([ScaleBaseline.zero], an [AreaChart]'s default). A fitted area
+  /// fills down to the axis' end nearest zero, a little past the data.
+  final ScaleBaseline baseline;
 
   /// A line under the chart.
   final String? caption;
@@ -216,7 +227,11 @@ class LineChart implements SvgChart {
           for (final s in series)
             for (var i = 0; i < n; i++) at(s, i),
         ],
-        baseline: area,
+        baseline: baseline,
+        // An area is filled from the axis' end nearest zero, as a column
+        // is: a fitted axis keeps the area at the lowest value from
+        // collapsing onto that end.
+        bars: area,
         min: yMin,
         max: yMax,
       ),
@@ -227,6 +242,7 @@ class LineChart implements SvgChart {
       tickFormat: tickFormat,
       grid: grid,
       caption: caption,
+      axisNearestZero: area,
     );
     final plot = frame.area;
     final y = frame.scale;
@@ -398,7 +414,8 @@ class LineChart implements SvgChart {
   String toString() => render();
 }
 
-/// A line chart with the area under each line filled, from zero.
+/// A line chart with the area under each line filled, from zero (or, with
+/// [baseline] [ScaleBaseline.min], from the fitted axis' end nearest zero).
 ///
 /// For one series, or a few that overlap little: overlapping fills blend.
 class AreaChart extends LineChart {
@@ -420,6 +437,7 @@ class AreaChart extends LineChart {
     super.points,
     super.yMin,
     super.yMax,
+    super.baseline = ScaleBaseline.zero,
     super.caption,
     super.grid = true,
     super.hint,
@@ -443,6 +461,7 @@ class AreaChart extends LineChart {
     bool? points,
     num? yMin,
     num? yMax,
+    ScaleBaseline baseline = ScaleBaseline.zero,
     String? caption,
     bool grid = true,
     HintBuilder? hint,
@@ -462,6 +481,7 @@ class AreaChart extends LineChart {
          points: points,
          yMin: yMin,
          yMax: yMax,
+         baseline: baseline,
          caption: caption,
          grid: grid,
          hint: hint,

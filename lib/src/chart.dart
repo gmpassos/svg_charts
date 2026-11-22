@@ -267,19 +267,37 @@ class Frame {
   final List<num> ticks;
 }
 
-/// The value domain for [values] with [baseline] included (bars start at
-/// zero; lines need not).
+/// The value domain for [values] by [baseline]: zero included
+/// ([ScaleBaseline.zero]), or fitted to the data ([ScaleBaseline.min]).
+/// An explicit [min] or [max] is kept as given.
+///
+/// With [bars] (columns and areas, drawn from the axis' end nearest zero)
+/// and a fitted domain that doesn't reach zero, that end is pulled 5% of
+/// the span past the data. The nice ticks then round it to a tick strictly
+/// beyond the value nearest zero; without it, data such as `[10, 20, 30]`
+/// gets ticks 10–30 and the column for 10 has no height at all.
 ({num min, num max}) valueDomain(
   Iterable<num?> values, {
-  bool baseline = true,
+  ScaleBaseline baseline = ScaleBaseline.zero,
+  bool bars = false,
   num? min,
   num? max,
 }) {
   final e = dataExtent(values) ?? (min: 0, max: 1);
   var lo = min ?? e.min, hi = max ?? e.max;
-  if (baseline) {
-    if (min == null && lo > 0) lo = 0;
-    if (max == null && hi < 0) hi = 0;
+  switch (baseline) {
+    case ScaleBaseline.zero:
+      if (min == null && lo > 0) lo = 0;
+      if (max == null && hi < 0) hi = 0;
+    case ScaleBaseline.min when bars:
+      // A flat range (span 0) needs no pull: niceTicks widens it around
+      // its value, which already leaves the bars a height. The pull stops
+      // at zero, never crossing it.
+      final pull = (hi - lo) * 0.05;
+      if (min == null && lo > 0) lo = math.max(0, lo - pull);
+      if (max == null && hi < 0) hi = math.min(0, hi + pull);
+    case ScaleBaseline.min:
+      break;
   }
   return (min: lo, max: hi);
 }
@@ -295,6 +313,11 @@ class Frame {
 /// The tick labels' width decides the left margin, so long numbers never
 /// run off the edge. (Horizontal bars, labelled directly, lay themselves
 /// out: [BarChart] has no value axis.)
+///
+/// When zero isn't a tick, an axis line is drawn at the plot's bottom; with
+/// [axisNearestZero] (columns and areas) it is drawn at the domain's end
+/// nearest zero instead, where their marks start: the top for a domain
+/// wholly below zero, as negative columns hang from there.
 Frame writeFrame(
   SvgWriter w,
   SvgChartTheme theme, {
@@ -308,6 +331,7 @@ Frame writeFrame(
   NumberFormatter tickFormat = formatCompact,
   bool grid = true,
   String? caption,
+  bool axisNearestZero = false,
 }) {
   final small = theme.smallFontSize;
   var top = 8.0;
@@ -378,12 +402,13 @@ Frame writeFrame(
   }
   // The baseline when zero isn't a tick (a domain above or below it).
   if (!ticks.contains(0)) {
+    final axisY = axisNearestZero && ticks.last < 0 ? area.top : area.bottom;
     w.empty('line', {
       'class': theme.cls('axis'),
       'x1': area.left,
-      'y1': area.bottom,
+      'y1': axisY,
       'x2': area.right,
-      'y2': area.bottom,
+      'y2': axisY,
       'stroke': theme.palette.axis,
     });
   }

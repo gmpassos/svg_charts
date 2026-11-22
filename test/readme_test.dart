@@ -51,6 +51,22 @@ void main() {
     expect(byClass(root, 'line'), hasLength(2));
   });
 
+  test('a fitted column axis: not from zero, every column shows', () {
+    final root = parseSvg(
+      ColumnChart.of(
+        [980, 1010, 995],
+        labels: ['Q1', 'Q2', 'Q3'],
+        baseline: ScaleBaseline.min,
+      ).render(),
+    );
+    final ticks = textsOf(byClass(root, 'ticks').single);
+    expect(ticks, isNot(contains('0')));
+    for (final bar in byClass(root, 'bar')) {
+      final b = pathBounds(bar.getAttribute('d')!);
+      expect(b.maxY - b.minY, greaterThan(1));
+    }
+  });
+
   test('a meter never says 0% for a non-zero rate', () {
     expect(textsOf(parseSvg(const Meter(0.004).render())), ['<1%']);
     expect(textsOf(parseSvg(const Meter(0.42, title: 'Disk used').render())), [

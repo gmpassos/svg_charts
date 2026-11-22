@@ -4,6 +4,21 @@ library;
 
 import 'dart:math' as math;
 
+/// Where a value axis starts: at zero, or at the data's lowest value.
+///
+/// An explicit axis end (`yMin` / `yMax`) always wins over either.
+enum ScaleBaseline {
+  /// The axis includes zero: it starts at zero for positive values (ends
+  /// at zero for negative ones), so lengths and areas are to scale.
+  zero,
+
+  /// The axis fits the data: it starts at the lowest value, rounded down
+  /// to a tick, and ends at the highest, rounded up, zero included only
+  /// when the data crosses it. Differences show better; lengths are no
+  /// longer proportional to values.
+  min,
+}
+
 /// Whether [v] is a value a chart can draw: not null, not NaN, not
 /// infinite. Everything else is a gap.
 bool isDrawable(num? v) => v != null && v.isFinite;

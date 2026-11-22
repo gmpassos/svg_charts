@@ -166,6 +166,38 @@ its points. A natural spline would invent peaks and dips the data doesn't have.
 A line's axis fits its data. An area's includes zero, as its filled area is a
 magnitude.
 
+## Where the value axis starts
+
+`baseline:` chooses where a value axis starts when `yMin` / `yMax` don't say:
+
+- `ScaleBaseline.zero` includes zero, so heights and areas are to scale. The
+  default for `ColumnChart` and `AreaChart`.
+- `ScaleBaseline.min` fits the axis to the data: from the lowest value, rounded
+  down to a tick, to the highest. The default for `LineChart` and both axes of
+  `ScatterChart`.
+
+```dart
+// Columns that differ little next to their size: compare the tops.
+ColumnChart.of(
+  [980, 1010, 995],
+  labels: ['Q1', 'Q2', 'Q3'],
+  baseline: ScaleBaseline.min,
+);
+// A line whose level matters: from zero.
+LineChart.of(visits, baseline: ScaleBaseline.zero);
+// A scatter with y from zero, x fitted.
+ScatterChart(points, yBaseline: ScaleBaseline.zero);
+```
+
+On a fitted axis, columns and areas start at the axis' end nearest zero (the
+top when every value is negative), and the axis is pulled a little past the
+value nearest zero so its column still shows. A fitted column's height is no
+longer proportional to its value, so use it only where differences matter more
+than magnitudes. Stacked columns fit their stacks' ends; the segments below the
+axis are cut at it. Data that crosses zero includes zero either way.
+`BarChart` (labelled directly, with no axis to read a cut from) and
+`Sparkline` keep their own scales.
+
 ## Scatter, pie and donut
 
 ![Price vs. orders](doc/images/scatter.svg)
