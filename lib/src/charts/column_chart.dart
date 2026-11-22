@@ -26,8 +26,10 @@ enum BarMode {
 ///
 /// Columns start at a zero baseline, so negative values hang below it
 /// (drawn in the palette's negative colour for a single series; several
-/// series keep their own colours, as colour names the series). A `null`
-/// value draws no column. Each column has a hint: its category, its
+/// series keep their own colours, as colour names the series). With
+/// [baseline] [ScaleBaseline.min] the axis fits the data instead, and
+/// columns start at the axis' end nearest zero. A `null` value draws no
+/// column. Each column has a hint: its category, its
 /// series and value, and with [shares] its share of the whole.
 ///
 /// ```dart
@@ -57,6 +59,7 @@ class ColumnChart implements SvgChart {
     this.hint,
     this.yMin,
     this.yMax,
+    this.baseline = ScaleBaseline.zero,
     this.groupGap = 0.2,
     this.caption,
     this.grid = true,
@@ -80,6 +83,7 @@ class ColumnChart implements SvgChart {
     HintBuilder? hint,
     num? yMin,
     num? yMax,
+    ScaleBaseline baseline = ScaleBaseline.zero,
     double groupGap = 0.2,
     String? caption,
     bool grid = true,
@@ -99,6 +103,7 @@ class ColumnChart implements SvgChart {
          hint: hint,
          yMin: yMin,
          yMax: yMax,
+         baseline: baseline,
          groupGap: groupGap,
          caption: caption,
          grid: grid,
@@ -152,11 +157,21 @@ class ColumnChart implements SvgChart {
   /// Writes each column's hint instead of the default.
   final HintBuilder? hint;
 
-  /// The value axis' low end (by default the lowest value, or zero).
+  /// The value axis' low end (by default the lowest value, or zero: see
+  /// [baseline]).
   final num? yMin;
 
-  /// The value axis' high end (by default the highest value, or zero).
+  /// The value axis' high end (by default the highest value, or zero: see
+  /// [baseline]).
   final num? yMax;
+
+  /// Where the value axis starts when [yMin] / [yMax] don't say:
+  /// [ScaleBaseline.zero] (the default) includes zero, so heights are to
+  /// scale; [ScaleBaseline.min] fits the axis to the data, a little past
+  /// the value nearest zero so its column still shows, to compare values
+  /// that differ little next to their size. Stacked columns fit their
+  /// stacks' ends; the segments below the axis are cut at it.
+  final ScaleBaseline baseline;
 
   /// The space between categories, as a fraction of each one's slot.
   final double groupGap;
@@ -191,11 +206,17 @@ class ColumnChart implements SvgChart {
     }
 
     // Stacked: each category's positive and negative sums bound the axis.
+    // A sum only where the category has a value that way: an all-positive
+    // category's empty negative sum (0) would otherwise pin the axis to
+    // zero, and ScaleBaseline.min could never fit the stacks. (With
+    // ScaleBaseline.zero the domain includes zero anyway.)
     final domainValues = stacked
         ? [
             for (var i = 0; i < n; i++) ...[
-              series.fold<num>(0, (a, s) => a + math.max(0, at(s, i) ?? 0)),
-              series.fold<num>(0, (a, s) => a + math.min(0, at(s, i) ?? 0)),
+              if (series.any((s) => (at(s, i) ?? 0) > 0))
+                series.fold<num>(0, (a, s) => a + math.max(0, at(s, i) ?? 0)),
+              if (series.any((s) => (at(s, i) ?? 0) < 0))
+                series.fold<num>(0, (a, s) => a + math.min(0, at(s, i) ?? 0)),
             ],
           ]
         : [
@@ -207,7 +228,13 @@ class ColumnChart implements SvgChart {
       theme,
       width: width,
       height: height,
-      domain: valueDomain(domainValues, min: yMin, max: yMax),
+      domain: valueDomain(
+        domainValues,
+        baseline: baseline,
+        bars: true,
+        min: yMin,
+        max: yMax,
+      ),
       title: title,
       legend: [for (final s in series) s.name],
       legendPosition: legend,
@@ -215,10 +242,11 @@ class ColumnChart implements SvgChart {
       tickFormat: tickFormat,
       grid: grid,
       caption: caption,
+      axisNearestZero: true,
     );
     final area = frame.area;
     final y = frame.scale;
-    // The baseline: zero, or the axis' end nearest it.
+    // The baseline: zero, or the axis' end nearest it (a fitted axis).
     final base = y(math.max(frame.ticks.first, math.min(0, frame.ticks.last)));
     // A value past an explicit yMin / yMax is cut at the axis' end, never
     // drawn over the title, legend or labels (its hint keeps the value).
